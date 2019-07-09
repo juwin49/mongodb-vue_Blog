@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>博客blog</title>
+  <link rel="icon" href="favicon.png" />
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+  <canvas id="myCanvas" ></canvas>
+
+  <div id="app" >
+
+    <header class="header">
+      <div class="menu-div" @click="leftnav()" :class="{menublack:leftnav800} "><span class="sprite menu-icon"></span></div>
+      <div class="header-inner">
+
+        <div class="title">blog</div>
+        <div class="search"><router-link :to="{ path: `/textList/` + this.search}"  ><input type="text" class="input" required="required"  @click.prevent.self @submit.native.prevent v-model.trim="search" ><button class="sprite search-button" @submit.native.prevent required="required" ></button></router-link></div>
+      </div>
+    </header>
+      <!-- <nav id="leftNav" >
+         <router-link to="/">Go to Foo</router-link>
+         <router-link to="/bar">Go to Bar</router-link>
+         <router-link to="/hello">Go to hello</router-link>
+      </nav> -->
+    <div class="main">
+     <div class="leftnav" id="leftnav" :class="leftnav800? leftnav800show:leftnav800hide">
+      <div class="cv card" ><div class="background-block"></div>
+        <div class="cv-logo">
+          <div class="sprite logo"></div><h1>Juwin</h1><p>一个爱瞎折腾的小姐姐</p>
+            <ul class="cv-link">
+               <a href="mailto://juwin0437581154@outlook.com" target="_blank"><li class="sprite email"></li></a>
+               <li class="sprite weibo"></li>
+               <a href="https://github.com/juwin49" target="_blank"><li class="sprite github"></li></a>
+            </ul>
+          </div>
+      </div>
+      <router-view name="sidebar" class="sidebar "></router-view>
+     </div>
+     <transition name="fade" mode="out-in">
+     <router-view class="container"></router-view>
+     </transition>
+    </div>
+    <!-- <router-view name="Foo"></router-view>
+    <router-view class="" name="a" ></router-view>
+    <router-view class="" name="b" ></router-view>
+    <router-view class="" name="Bar" ></router-view>
+    <div >{{list}}</div>
+    <footer>ccccccccccc</footer>
+    <router-view> <child :my-name="name" :my-age="age"></child></router-view> -->
+  </div>
+<footer class="footer"></footer>
+</body>
+
+
+<script type="text/javascript" src="js/lib/vue.min.js"></script>
+<script type="text/javascript" src="js/lib/vue-router.js"></script>
+<script type="text/javascript" src="js/lib/vue-resource.js"></script><!--vue2.0之后，就不再对vue-resource更新，而是推荐使用axios。基于 Promise 的 HTTP 请求客户端，可同时在浏览器和 Node.js 中使用。-->
+<script type="text/javascript" src="js/lib/vuex.js"></script>
+<script type="text/javascript" src="js/canvas-nest.min.js"></script>
+<!-- <script type="text/javascript" src="js/style.js"></script> -->
+<script  type="module" src="js/router.js"></script>
+</html>

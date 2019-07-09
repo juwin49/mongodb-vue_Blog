@@ -1,0 +1,49 @@
+文件名切记不可用空格否则有很多意想不到的错误！！！！
+
+virtualbox win8下所遇错误：
+
+virtualbox安装失败
+在win8核心版下virtualbox无法安装成功，必须在系统为win8专业版才可安装成功
+
+
+virtualbox打开时
+c:/windows/systeam32/nvinitx.dll(dll文件名记不太清楚),没有被指定在windows下运行
+virtualbox4.3.14及4.2.18都出现此问题，virtualbox4.3.10无此问题
+
+virtualbox修改虚拟磁盘格式：vmdk，vdi...时
+VBoxManage.exe:eror:Most likely,the VirtualBox COM server is not running or failed to start.
+1、需关闭虚拟机
+2、需要右键更改virtualbox兼容性，以win8兼容模式兼容
+
+virtualbox修改虚拟磁盘格式：vmdk，vdi...时
+systax error:invalid parameter 'target.vdi'
+虚拟磁盘命名时如果有空格，将使命令难以完成。
+
+
+
+
+Windows7的引导程序能够引导vhd格式的虚拟硬盘，而VirtualBox创建的虚拟硬盘文件是vdi格式的，怎么办呢？
+VirtualBox早就悄悄为我们带来了一个VBoxManager.exe来转换格式。
+
+命令如下(Windows环境，Linux版的应该也有VBoxManager这个二进制文件)：
+VBoxManager存在于VirtualBox的安装目录下。
+
+vmdk转换成vdi  VBoxManage.exe clonehd source.vmdk target.vdi --format VDI 
+vdi转换成vmdk  VBoxManage.exe clonehd source.vdi target.vmdk --format VMDK 
+vdi转换成vhd   VBoxManage.exe clonehd source.vdi target.vhd --format VHD 
+vmdk转vhd，vhd转vdi、vmdk的话稍微改一点参数就OK了。
+需要注意的是运行完命令之后，原文件并不会被删除。
+
+
+修改vdi磁盘大小（virtualbox只支持vdi磁盘格式的大小转换）
+查看磁盘情况：vboxmanage list hdds
+UUID: bd94c87c-917f-412e-b357-f929934ee2e8
+.
+.
+.
+改变磁盘大小为10240mb (只能改大，不能改小):
+vboxmanage modifyhd bd94c87c-917f-412e-b357-f929934ee2e8 --resize 10240
+
+
+
+

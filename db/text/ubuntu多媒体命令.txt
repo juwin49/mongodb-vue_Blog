@@ -1,0 +1,8 @@
+ubuntu server 多媒体的一些命令：
+alsamixer调音量
+mplayer播放mp3,视频
+play播放声音
+aplay播放wav
+cat /proc/asound / version 查看声卡去掉是否装好
+fbi aaa.jpg 图片查看器
+mplayer -vo fbdev -fs aaaa.avi 播放视频

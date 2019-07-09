@@ -1,0 +1,7 @@
+<meta HTTP-EQUIV="expires" CONTENT="Wed, 23 Aug 1978 12:40:27 UTC">
+这句话的意思是说，这个网页的缓存过期时间为Wed, 23 Aug 1978 12:40:27 UTC，
+由于这是一个过去的日期，所以这个网页只要一打开，就会直接到网站服务器重新下载页面内容，而不是从cache调用。
+所以这个设置仍然是有意义的，这是一种防止网页被cache缓存的措施。
+补充说明一下，CONTENT的值也可以设为秒数，比如<meta HTTP-EQUIV="expires" CONTENT="60">
+表示网页在60秒后过期<meta HTTP-EQUIV="expires" CONTENT="-1">
+这是特殊的用法，表示网页在任何时候都不能被Cache存储，效果和你那个是一样的。

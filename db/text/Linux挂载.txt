@@ -1,0 +1,40 @@
+linux系统中，所有的文件与目录都是由根目录/开始，不是以/开头的就是相对路径；
+ .：表示当前目录，也可以用./表示；
+ ..：表示上一级目录，也可以用../表示； 
+~：代表用户自己的宿主目录；  
+/：处于Linux文件系统树形结构的最顶端，我们称它为Linux文件系统的root，它是Linux文件系统的入口。所有的目录、文件、设备都在/之下，它是Linux文件系统最顶层的唯一的目录；
+
+
+创建目录
+语法：mkdir [选项] dir-name 
+
+删除目录
+rmdir [选项] dir-name 
+
+
+
+/**********linux用挂载文件方式访问window共享文件********/
+Linux  ~/下创建文件夹share；
+window   sanwik文件共享；
+把window共享文件夹挂载到linux本地文件夹：
+sudo mount //192.168.6.149/SanwikWeb ~/share -o username=***,password=***
+
+删除挂载：sudo umount
+
+
+/*********linux使用samba访问window共享文件***************/
+查看是否已安装samba
+rpm -qagrep samba
+
+安装samba
+sudo apt-get install rpm
+
+查看192.168.6.49上的共享文件sanwik
+smbclient //192.168.6.49/sanwik
+
+
+
+
+
+////linux编辑文本
+sudo gedit

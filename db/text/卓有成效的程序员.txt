@@ -1,0 +1,12 @@
+地址补全：IE/Firefox   Ctrl+Enter
+Firefox ： 直接调到某个标签：Ctrl+<标签号>
+
+
+有时候mysql不能建立自定义函数是因为该功能2未开启
+输入 show variables like '%func%'; 命令
+会看到 log_bin_trust_function_creators 的状态，如果是OFF表示自定义函数功能是关闭的
+输入命令 set global log_bin_trust_function_creators=1;
+可将 log_bin_trust_function_creators 开启自定义函数功能
+但是这样设置是一个临时的方案，因为mysql自动重启后状态又会变为OFF，所以需要在
+在服务启动时加上 “--log-bin-trust-function-creators=1 ”参数。
+或在my.ini（my.cnf）中的[mysqld]区段中加上 log-bin-trust-function-creators=1。

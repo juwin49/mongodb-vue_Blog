@@ -1,0 +1,17 @@
+用Javascript控制Flash播放的函数
+
+1.StopPlay() 停止flash动画的播放
+2.Play() 使falsh动画在停止处开始播放
+3.IsPlay() 判断flash动画是否正在播放，返回布尔值。//不好用
+4.Rewin() 使flash跳到第一帧关停止播放
+5.GoToFrame(intnum) 使flash跳到指定帧
+6.CurrentFrame 返回当前帧数。flash帧数从0开始计算
+7.TotalFrames() 返回当前flash动画的总帧数
+8.PercentLoad() 返回当前载入的flash帧数百分比。可以用来作精确的loading动画。
+9.LoadMovie(int,string) 装载其它的falsh动画。string是flash动画名。
+10.TGoToFrame(string,intnum) 跳到指定的movieclip的指定帧
+11.TGoToLabel(string,string) 跳到指定的movieclip的指定label
+12.TCurrentFrame(string,str2) 返回指定的movieclip的帧
+13.TCurrentLabel(string,str2) 返回指定movieclip的label
+14.TStopPlay(string) 停止指定movieclip的动画
+15.TPlay(string) 从指定movieclip的动停止处开始播放

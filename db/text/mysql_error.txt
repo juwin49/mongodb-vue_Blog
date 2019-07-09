@@ -1,0 +1,4 @@
+mysql 1449 ： 
+The user specified as a definer ('root'@'%') does not exist 解决方法
+权限问题，授权 给 root  所有sql 权限
+mysql> grant all privileges on *.* to root@"%" identified by ".";

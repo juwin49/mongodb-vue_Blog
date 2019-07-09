@@ -1,0 +1,10 @@
+IIS常见错误以及问题的解决办法，0x80070021，需要启动父路径(转)
+
+
+1.=======
+
+HTTP 错误500.19 -Internal Server Error 错误代码 0x80070021
+
+我这里的问题是因为安装framework是在安装iis之前，asp.net没有注册造成的，所以很简单，只要运行这个命令就可以解决问题了,WIN7使用管理员权限操作！
+
+C:/Windows/Microsoft.NET/Framework/v2.0.50727/aspnet_regiis -i

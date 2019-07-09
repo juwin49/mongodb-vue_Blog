@@ -1,0 +1,441 @@
+//创建存储过程proc_create
+DELIMITER $$
+USE `mydemo`$$
+DROP PROCEDURE IF EXISTS `proc_create`$$
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_create`()
+BEGIN
+
+END$$
+DELIMITER ;
+
+
+或mysql workbench简洁添加存储过程方法
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_create`()
+BEGIN
+
+END
+
+
+//添加没有参数的单表查询存储过程proc_search_table_noparameter
+DELIMITER $$
+USE `mydemo`$$
+DROP PROCEDURE IF EXISTS `proc_search_table_noparameter`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_search_table_noparameter`()
+BEGIN      
+        /*left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录 
+          right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录
+          inner join(等值连接) 只返回两个表中联结字段相等的行*/         
+        SELECT c.*,d.sid FROM (SELECT a.*,b.inventory,b.report FROM run_cashbox AS a RIGHT JOIN up_load_cash AS b ON a.cashboxid=b.boxid) AS c 
+        LEFT JOIN sb_saledevice AS d ON c.macsn=d.macsn;
+                
+        SELECT * FROM jc_line INNER JOIN jc_line_stations ON jc_line.id= jc_line_stations.lid;
+ 	
+ 	/*group_concat():该函数返回带有来自一个组的连接的非NULL值的字符串结果。
+ 	group_concat()函数需要与group by语句在一起使用，才能得到需要的效果。*/	
+ 	SELECT account, GROUP_CONCAT(rolename) AS rolename FROM `jc_usergroup`  GROUP BY account;
+ 	
+      /*CONV(N,from_base,to_base)N是要转换的数据，from_base是原进制，to_base是目标进制。
+ 	CONCAT(str1,str2,…)返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL。
+ 	TRUNCATE(X,D)这个函数的返回值截断到D的小数位数的X。如果D是0，则在小数点被除去。如果D是否定的，那么D的值的整数部分的值将被截断。
+ 	IFNULL(expr1,expr2)如果expr1不是NULL，IFNULL()返回expr1，否则它返回expr2。
+ 	FLOOR(N)向下取整*/
+ 	SELECT a.*,CONV(a.sn,16,10) AS sn10,TRUNCATE(a.param1/100,2) param11,CONCAT(a.logid,'流水日志号') logid2,IFNULL(a.param1, a.param2) param22, FLOOR(datatime/(15*60))*(15*60) AS time2,
+ 	(UNIX_TIMESTAMP(NOW()) - a.datatime)/86400 > a.param2 AS iswarn,func_get_cardtype(organization) ct  FROM rz_saledetail a ;
+ 	
+ 	
+ 	/*SUM()求和*/
+ 	SELECT SUM(a.amount) AS allamount FROM jy_checkdetail a ;
+ 	
+ 	/*MAX()取最大值*/
+ 	SELECT  MAX(a.tradeid) FROM jy_checkdetail a;
+ 	
+ 	SET @SQL = CONCAT("SELECT box.* ,NULL AS 1discash,NULL AS 5discash,box.report=box.inventory AS equality
+              FROM  boxtypeid11_view AS box   WHERE box.uptime 
+        UNION ALL
+              SELECT box.* ,dis.par1 AS 1discash,dis.par5 AS 5discash,box.report=box.inventory AS equality
+              FROM  boxtypeid12_view AS box  
+              LEFT JOIN run_cashboxdiscard AS dis ON box.macsn=dis.macsn AND box.incid=dis.incid AND box.runcnt=dis.runcnt AND box.starttime=dis.starttime  WHERE 1 
+               ");   
+     SET @SQL1 = CONCAT("SELECT * FROM (",@SQL,") A ORDER BY A.termno,A.incid ");
+     PREPARE stmt FROM @SQL1;
+     EXECUTE stmt ;
+     DEALLOCATE PREPARE stmt; 
+ 	
+ 	
+ END$$
+DELIMITER ;
+
+
+
+//添加有参数的两表联表查询存储过程proc_search_table_parameter
+DELIMITER $$
+USE `mydemo`$$
+DROP PROCEDURE IF EXISTS `proc_search_table_parameter`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_search_table_parameter`(IN _pages INT,IN _size INT, IN _begin CHAR(11),IN _end CHAR(11),
+          IN _id INT, IN _macsn CHAR(16),IN _online INT,IN _idlist VARCHAR(500),IN _termno CHAR(16),OUT _allcount INT,OUT _count INT)
+BEGIN       
+	
+       DECLARE COND1 VARCHAR(1000) DEFAULT ''; 
+       
+       SET @ROWS = _size;
+       SET @OFFSET = (_page-1) * _size;
+       
+       IF _begin <> '' THEN
+         SET COND1 = CONCAT(COND1, " AND b.datatime>='",_begin,"'");
+       END IF;    
+       IF _end <> '' THEN
+         SET COND1 = CONCAT(COND1, " AND b.datatime<'",_end,"'");
+       END IF;  
+       IF _id IS NOT NULL THEN
+         SET COND1 = CONCAT(COND1, " AND a.id=",_id);
+       END IF;	
+       IF _macsn <> '' THEN
+          SET COND1 = CONCAT(COND1, " AND a.macsn='",_macsn,"'");
+       END IF; 
+       IF _state = 0 THEN
+         SET @WHERE = CONCAT(COND1, " AND a.state = 0 OR a.online IS NULL");
+       ELSEIF _state = 1 THEN
+         SET @WHERE = CONCAT(COND1, " AND a.state = 1 ");
+       ELSEIF _state = 2 THEN
+         SET @WHERE = CONCAT(COND1, " AND a.state = 2 ");
+       ELSEIF _state = 3 THEN
+         SET @WHERE = CONCAT(COND1, " AND a.state = 3 ");
+       END IF;
+       IF _idlist <> '' THEN
+		SET @WHERE = CONCAT(COND1," and a.id in (",_idlist,")");
+	END IF;
+       /*模糊查询*/
+       IF _termno <> '' THEN
+            SET COND1 = CONCAT(COND1, " AND a.termno like '%",_termno,"%'");
+        END IF;	
+  
+       SET @SQL = CONCAT("SELECT a.*,b.datatime FROM sb_saledevice AS a LEFT JOIN jy_saledetail AS b ON a.macsn=b.macsn WHERE 1 ",COND1," ORDER BY datatime DESC,macsn LIMIT ",_pages,' ,',_size); 
+       PREPARE stmt FROM @SQL;
+       EXECUTE stmt;
+       DEALLOCATE PREPARE stmt;   
+	   
+       SET @SQL2 = CONCAT("SELECT a.*,b.datatime FROM sb_saledevice AS a LEFT JOIN jy_saledetail AS b ON a.macsn=b.macsn WHERE 1 ",COND1," GROUP BY tradeid LIMIT  ?,?"); 
+       PREPARE stmt2 FROM @SQL2;
+       EXECUTE stmt2 USING @OFFSET, @ROWS;
+       DEALLOCATE PREPARE stmt2; 
+     
+       SET @SQL3 = CONCAT("SELECT count(1) into @outvar FROM sb_saledevice AS a LEFT JOIN jy_saledetail AS b ON a.macsn=b.macsn WHERE 1  ",COND1);
+       PREPARE stmt3 FROM @SQL3; 
+       EXECUTE stmt3;
+       SELECT @outvar INTO _allcount;
+       DEALLOCATE PREPARE stmt3; 	
+       
+       SET @SQL4 = CONCAT("SELECT count(DISTINCT a.macsn) into  @outvar2 FROM sb_saledevice AS a LEFT JOIN jy_saledetail AS b ON a.macsn=b.macsn  WHERE 1  ",COND1);
+       PREPARE stmt4 FROM @SQL4; 
+       EXECUTE stmt4;
+       SELECT @outvar2 INTO _count;
+       DEALLOCATE PREPARE stmt4; 	   
+END$$
+
+DELIMITER ;
+
+
+//创建时间转换存储过程proc_search_table_time
+DELIMITER $$
+USE `mydemo`$$
+DROP PROCEDURE IF EXISTS `proc_search_table_time`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_search_table_time`(IN _time INT,IN _starttime INT)
+BEGIN
+ 	SET @WHERE = ' where 1 ';
+ 	SET @ROWS = _size;
+	SET @OFFSET = (_page-1) * _size;
+	
+	IF _starttime <> '' THEN
+		SET @WHERE = CONCAT(@WHERE," and unix_timestamp(dzdate) >=  ", _starttime);
+	END IF;
+	
+	SET @search = CONCAT("select  @rownum:=@rownum+1 rownum,id,from_unixtime(databegintime) databegintime,truncate(amount/100,2) amount
+			       from dz_card, (select @rownum:=?) t ",@WHERE, " order by dzdate desc,taskbegintime desc limit ?,?");
+	PREPARE STMT FROM @search;
+	EXECUTE STMT USING @OFFSET, @OFFSET, @ROWS;
+	DEALLOCATE PREPARE STMT;
+	
+	SELECT FROM_UNIXTIME(_time,'%Y-%m-%d') INTO @TIME ;
+	SELECT * FROM stat_line_revenue WHERE stat_line_revenue.revenue = @TIME ;
+END$$
+
+DELIMITER ;
+
+
+//创建删除表记录存储过程proc_delete
+DELIMITER $$
+
+USE `mydemo`$$
+
+DROP PROCEDURE IF EXISTS `proc_search_table_time`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_search_table_time`(IN _time INT,IN _starttime INT)
+BEGIN
+ 	SET @WHERE = ' where 1 ';
+ 	SET @ROWS = _size;
+	SET @OFFSET = (_page-1) * _size;
+	
+	IF _starttime <> '' THEN
+		SET @WHERE = CONCAT(@WHERE," and unix_timestamp(dzdate) >=  ", _starttime);
+	END IF;
+	
+	SET @search = CONCAT("select  @rownum:=@rownum+1 rownum,id,from_unixtime(databegintime) databegintime,truncate(amount/100,2) amount
+			       from dz_card, (select @rownum:=?) t ",@WHERE, " order by dzdate desc,taskbegintime desc limit ?,?");
+	PREPARE STMT FROM @search;
+	EXECUTE STMT USING @OFFSET, @OFFSET, @ROWS;
+	DEALLOCATE PREPARE STMT;
+	
+	SELECT FROM_UNIXTIME(_time,'%Y-%m-%d') INTO @TIME ;
+	SELECT * FROM stat_line_revenue WHERE stat_line_revenue.revenue = @TIME ;
+END$$
+
+DELIMITER ;
+
+//创建带临时表的存储过程proc_tempdb2
+DELIMITER $$
+
+USE `mydemo`$$
+
+DROP PROCEDURE IF EXISTS `proc_tempdb2`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_tempdb2`()
+BEGIN
+  DECLARE sum_card1in,sum_card1out,sum_card1store,
+          sum_cardin,sum_cardout,sum_cardstore,sum_discard INT DEFAULT 0;
+  
+ DROP TEMPORARY TABLE IF EXISTS cardstore_sum;
+	CREATE TEMPORARY TABLE cardstore_sum(
+	     sum_cardstore INT(11),
+	     sum_discard INT(11),
+	     sum_card1store INT(11)
+	) ENGINE = MEMORY;
+	
+     SELECT COALESCE(SUM(amount),0) INTO `sum_card1in` FROM kc_blankcard  WHERE cd_type=1 AND kc_type=0;
+     SELECT COALESCE(SUM(amount),0) INTO `sum_card1out` FROM kc_blankcard  WHERE cd_type=1 AND kc_type=1;
+          		    
+  SELECT COALESCE(SUM(amount),0) INTO sum_cardin  FROM kc_blankcard  WHERE  kc_type=0;   
+  SELECT COALESCE(SUM(amount),0) INTO sum_cardout  FROM kc_blankcard  WHERE kc_type=1;
+  
+  SELECT COALESCE(SUM(amount),0) INTO sum_discard  FROM kc_blank_discard ;
+  
+    SET sum_cardstore=sum_cardin-sum_cardout;
+    SET sum_card1store=sum_card1in-sum_card1out;
+     INSERT INTO cardstore_sum( sum_cardstore ,sum_discard ,sum_card1store ) 
+                    VALUES ( sum_cardstore ,sum_discard ,sum_card1store );
+                    
+                    
+     SELECT * FROM cardstore_sum;
+    
+    END$$
+
+DELIMITER ;
+
+
+//创建带临时表的存储过程proc_tempdb3
+DELIMITER $$
+
+USE `mydemo`$$
+
+DROP PROCEDURE IF EXISTS `proc_tempdb3`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_tempdb3`(IN _lid CHAR(11), IN _sname CHAR(11))
+BEGIN
+        DECLARE COND1 VARCHAR(1000) DEFAULT '';
+    
+        IF _lid <> '' THEN
+           SET COND1 = CONCAT(COND1, " AND lid='",_lid,"'");
+        END IF;
+        IF _sname <> '' THEN
+           SET COND1 = CONCAT(COND1, " AND sname='",_sname,"'");
+        END IF;  
+        DROP TEMPORARY TABLE IF EXISTS device_tmp;
+	CREATE TEMPORARY TABLE device_tmp(
+	     sid INT(11),
+	     lid INT(11),
+	     sname CHAR(16),
+	     TYPE TINYINT(2),
+	     termno CHAR(20),
+	     macsn CHAR(11),
+	     state TINYINT(2),
+	     dtype TINYINT(2)
+	) ENGINE = MEMORY;
+	INSERT INTO device_tmp(sid,lid,sname,TYPE,termno,macsn,state,dtype)
+        SELECT c.*,d.termno,d.macsn,d.state,func_base_getDevType(d.macsn) AS dtype FROM (SELECT a.sid,a.lid,b.sname,b.type FROM jc_line_stations AS a LEFT JOIN jc_station AS b ON a.sid=b.id) AS c INNER JOIN sb_saledevice AS d
+        ON c.sid=d.sid UNION   
+        SELECT c.*,d.termno,d.macsn,d.state,func_base_getDevType(d.macsn) FROM (SELECT a.sid,a.lid,b.sname,b.type FROM jc_line_stations AS a LEFT JOIN jc_station AS b ON a.sid=b.id) AS c INNER JOIN sb_checkdevice AS d
+        ON c.lid=d.lid ORDER BY lid,sname,macsn;
+    
+     SET @SQL = CONCAT("SELECT * FROM device_tmp WHERE 1=1 ",COND1);   
+     PREPARE stmt FROM @SQL;
+     EXECUTE stmt;
+     DEALLOCATE PREPARE stmt; 
+    END$$
+
+DELIMITER ;
+
+
+
+//创建游标查询存储过程proc_cursor1
+DELIMITER $$
+
+USE `mydemo`$$
+
+DROP PROCEDURE IF EXISTS `proc_cursor1`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_cursor1`(IN _begin INT,IN _end INT)
+BEGIN
+	DECLARE Done INT DEFAULT 0;
+	DECLARE lid INT(10);
+	DECLARE rs CURSOR FOR SELECT id FROM jc_line;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET Done=1;
+	/*删除营收日数据*/
+	DELETE FROM `stat_line_revenue`  WHERE `revenue`= FROM_UNIXTIME(_begin, '%Y-%m-%d');
+	OPEN rs;  
+	FETCH NEXT FROM rs INTO lid;    
+	 
+	REPEAT
+		IF NOT Done THEN
+		   CALL proc_cursor2_and_tempdb(lid,_begin,_end);
+		END IF;   
+		FETCH NEXT FROM rs INTO lid;    
+	UNTIL Done END REPEAT;
+	CLOSE rs;
+END$$
+
+DELIMITER ;
+
+
+//创建游标查询及临时表查询存储过程proc_cursor2_and_tempdb
+DELIMITER $$
+
+USE `mydemo`$$
+
+DROP PROCEDURE IF EXISTS `proc_cursor2_and_tempdb`$$
+
+CREATE DEFINER=`root`@`%` PROCEDURE `proc_cursor2_and_tempdb`(IN _lid INT,IN _begin INT,IN _end INT)
+BEGIN
+	DECLARE Done INT DEFAULT 0;
+	DECLARE _subtype INT(11) DEFAULT 0;
+	DECLARE _cardname CHAR(64) DEFAULT '';
+	DECLARE rs  CURSOR FOR SELECT subtype,cardname FROM zk_rules WHERE organization = 1;
+	DECLARE rs1  CURSOR FOR SELECT subtype,cardname FROM zk_rules WHERE organization = 2;
+	
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET Done=1;
+	SELECT FROM_UNIXTIME(_begin,'%Y-%m-%d') INTO @BEGIN ;
+	SELECT FROM_UNIXTIME(_end,'%Y-%m-%d') INTO @END ;
+	/*单程票*/
+	
+	#普通单程票
+	/*创建临时表*/
+	DROP TEMPORARY TABLE IF EXISTS temp_ticket;
+	
+	CREATE TEMPORARY TABLE temp_ticket
+	    SELECT SUM(amount) AS amount
+             , COUNT(1)    AS `num`
+          FROM (SELECT*FROM jy_saledetail  WHERE jy_saledetail.cardtype=0 AND jy_saledetail.subtype=0) a
+			   LEFT JOIN saledevice_to_line_view 
+                      ON saledevice_to_line_view.macsn = a.macsn 
+		 WHERE saledevice_to_line_view.lid = _lid 
+		   AND a.datatime >= _begin 
+           AND a.datatime <= _end;
+	SELECT amount INTO @amount FROM temp_ticket;
+	SELECT `num`    INTO @num    FROM temp_ticket;
+	IF @amount IS NULL THEN
+		SET @amount = 0;
+	END IF;
+	INSERT INTO `stat_line_revenue`
+                (`revenue`,`type`, `subtype`,`cardname`, `tnum`, `tamount`,`lid`) 
+		 VALUES (@BEGIN, '有轨电车卡', 0,'单程票', @num, @amount, _lid);
+	/*通达卡*/
+	OPEN rs; 
+	FETCH rs INTO _subtype,_cardname;  
+		REPEAT
+			IF NOT Done THEN
+				SELECT SUM(amount) INTO @amount FROM jy_checkdetail LEFT JOIN sb_checkdevice ON sb_checkdevice.lid = _lid AND sb_checkdevice.macsn = jy_checkdetail.macsn WHERE cardtype = 1 AND subtype=_subtype AND datatime >= _begin AND datatime<=_end;
+				SELECT COUNT(1) INTO @num FROM jy_checkdetail LEFT JOIN sb_checkdevice ON sb_checkdevice.lid = _lid AND sb_checkdevice.macsn = jy_checkdetail.macsn WHERE cardtype = 1 AND subtype=_subtype AND datatime >= _begin AND datatime<=_end;
+				IF @amount IS NULL THEN
+					SET @amount = 0;
+				END IF;
+				
+				INSERT INTO `stat_line_revenue` (`revenue`,`type`, `subtype`,`cardname`, `tnum`, `tamount`,`lid`) VALUES(@BEGIN,'通达卡',_subtype,_cardname,@num,@amount,_lid);
+			END IF;   
+			
+			FETCH rs INTO _subtype,_cardname;    
+		UNTIL Done END REPEAT;
+	CLOSE rs;	
+	/*银联卡*/
+	
+	SET done = 0;
+	OPEN rs1; 
+	FETCH rs1 INTO _subtype,_cardname;  
+		REPEAT
+			IF NOT Done THEN
+				SELECT SUM(amount) INTO @amount FROM jy_checkdetail LEFT JOIN sb_checkdevice ON sb_checkdevice.lid = _lid AND sb_checkdevice.macsn = jy_checkdetail.macsn WHERE cardtype = 2 AND subtype=_subtype AND datatime >= _begin AND datatime<=_end;
+				SELECT COUNT(1) INTO @num FROM jy_checkdetail LEFT JOIN sb_checkdevice ON sb_checkdevice.lid = _lid AND sb_checkdevice.macsn = jy_checkdetail.macsn WHERE cardtype = 2 AND subtype=_subtype AND datatime >= _begin AND datatime<=_end;
+				IF @amount IS NULL THEN
+					SET @amount = 0;
+				END IF;
+				
+				INSERT INTO `stat_line_revenue` (`revenue`,`type`, `subtype`,`cardname`, `tnum`, `tamount`,`lid`) VALUES(@BEGIN,'银联卡',_subtype,_cardname,@num,@amount,_lid);
+			END IF;   
+			
+			FETCH rs1 INTO _subtype,_cardname;    
+		UNTIL Done END REPEAT;
+	CLOSE rs1;
+	
+	
+	#加收票款
+	SELECT COUNT(1),SUM(amount) INTO @num,@amount FROM jy_replaceticketdetail WHERE datatime >= _begin AND datatime<=_end AND operation=8 AND lid = _lid AND macsn IN (SELECT DISTINCT(macsn) FROM sb_replaceticketdevice_sign);
+	IF @amount IS NULL THEN
+		SET @amount = 0;
+	END IF;
+	INSERT INTO `stat_line_revenue` (`revenue`,`type`, `subtype`, `tnum`, `tamount`, `lid`) VALUES(@BEGIN,'加收票款',0,@num,@amount,_lid);
+	
+END$$
+
+DELIMITER ;
+
+
+//创建调用存储过程的存储过程
+DELIMITER $$
+
+USE `mydemo`$$
+
+DROP PROCEDURE IF EXISTS `proc_sc_cursor1`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_sc_cursor1`()
+BEGIN
+    DECLARE _err  INT DEFAULT 0;
+    DECLARE CONTINUE HANDLER FOR SQLWARNING, SQLEXCEPTION SET _err = 1;
+    /*每日时间间隔
+    CALL proc_cursor2_and_tempdb(UNIX_TIMESTAMP(UTC_DATE()),UNIX_TIMESTAMP(UTC_DATE())+3600*24-1);
+    */
+    /*每月时间间隔*/
+     CALL proc_cursor2_and_tempdb(UNIX_TIMESTAMP(DATE_SUB(CONCAT(LEFT(UTC_DATE(),7) ,'-01'),INTERVAL 1 MONTH)),UNIX_TIMESTAMP(DATE_SUB(CONCAT(LEFT(UTC_DATE(),7) ,'-01'),INTERVAL 1 DAY))+3600*24-1);
+    
+    
+    INSERT INTO test_timerecord (test_proc_name,starttime,endtime,datatime,stime) VALUES ('proc_cursor1', UNIX_TIMESTAMP(DATE_SUB(CONCAT(LEFT(UTC_DATE(),7) ,'-01'),INTERVAL 1 MONTH)),UNIX_TIMESTAMP(DATE_SUB(CONCAT(LEFT(UTC_DATE(),7) ,'-01'),INTERVAL 1 DAY))+3600*24-1,UTC_DATE(),NOW());
+    
+END$$
+
+DELIMITER ;
+
+
+//创建定时执行事件event_month
+DELIMITER $$
+
+/*创建每月执行事件
+CREATE EVENT `event_month` ON SCHEDULE EVERY 1 MONTH STARTS '2016-01-01 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO CALL proc_sc_cursor1()$$
+创建每天执行事件
+CREATE EVENT `event_month` ON SCHEDULE EVERY 1 DAY STARTS '2016-01-01 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO CALL proc_sc_cursor1()$$
+*/
+ALTER DEFINER=`root`@`localhost` EVENT `event_month` ON SCHEDULE EVERY 1 MONTH STARTS '2016-01-01 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO CALL proc_sc_cursor1()$$
+/*每天执行事件
+ALTER DEFINER=`root`@`localhost` EVENT `event_month` ON SCHEDULE EVERY 1 DAY STARTS '2016-01-01 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO CALL proc_sc_cursor1()$$
+*/
+DELIMITER ;
+
+

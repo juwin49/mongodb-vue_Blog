@@ -1,0 +1,18 @@
+W3C 组织为Storage订制的接口定义如下：
+interface Storage
+{
+  readonly attribut unsigned long length;
+  DOMString? key(unsigned long index);
+  getter DOMString getItem(DOMString key);
+  setter creator void serItem(DOMString key , DOMString value);
+  deleter void removeItem(DOMString key);
+  void clear();
+}
+
+可以看出Storage提供了如下属性及方法。
+length
+key(index)
+getItem(key)
+setItem(key, value)
+removeItem(key)
+clear()

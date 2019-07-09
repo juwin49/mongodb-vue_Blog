@@ -1,0 +1,145 @@
+  * 网站优化的问题 （加快网站加载速度，网站运行速度，SEO）
+    压缩方面肯定要的
+    资源合并
+    css sprite 图
+	缓存:localstorage; html页面 <meta http-equiv="expires" content="Sunday 26 October 2008 01:00 GMT" />
+	                   http://kinglyhum.iteye.com/blog/827807
+	部分内容延缓加载				   
+					
+  * 前端与后端的数据交互方式
+    ajax，websocket，http
+
+	
+  * 跨域的问题要怎么解决
+    jsonp
+    或者服务器做反向代理（原理后端帮我们解决不同域名的问题，因为后端没有跨域问题）
+    或者iframe来实现（比较落后的技术）
+
+	
+  * html，js加载及渲染顺序
+    肯定先渲染html
+	html遇到script，才会加载js
+	但是script最好不要放在head标签中,要等js加载完，html才可以继续往下渲染
+    不过html5，script标签好像可以设置异步加载了
+    
+  * 相应式布局要怎么弄的   
+    用css3的@media query
+	Flex布局
+	layui、Bootstrap、kube
+
+	
+  * 闭包是什么，有什么特性，对页面有什么影响，闭包，举例
+      闭包就是能够读取其他函数内部变量的函数。
+      http://blog.csdn.net/gaoshanwudi/article/details/7355794 此链接可查看（问这个问题的不是一个公司）
+	  举例：var quo = function(status){
+	            return {get_status:function(){return status;}}
+	        }
+	
+  * ajax请求的时候get 和post方式的区别
+     一个在url后面 一个放在虚拟载体里面
+     有大小限制
+     安全问题
+     应用不同 一个是论坛等只需要请求的，一个是类似修改密码的
+
+  * call和apply的区别
+    Object.call(this,obj1,obj2,obj3)
+    Object.apply(this,arguments)
+
+  * ajax请求时，如何解释json数据
+    使用eval parse 鉴于安全性考虑 使用parse更靠谱
+	
+  * 解释jsonp的原理，以及为什么不是真正的ajax,举例：
+     动态创建script标签，回调函数
+     Ajax是页面无刷新请求数据操作
+	 
+  * 前端页面有哪三层构成，分别是什么?作用是什么?
+     结构层 Html 表示层 CSS 行为层 js
+
+  * Javascript 基础、JS面向对象实现原理、闭包机制、作用域
+  
+  * 移动端与PC端的区别
+     分辨率
+	 webkit内核的浏览器和chrome，uc，qq，小米手机浏览器
+	 鼠标，键盘的交互变成了触摸以及手势的交互
+	 与Native App互动
+  
+  * html5浏览器的支持情况
+    IE9，chrome，firefox 4，opera，safari 5
+  * html5在浏览器上的兼容问题
+    IE7 json3.js  ；IE 8 html5shiv.js;  jQuery1.7开始可增加了对HTML5标签的兼容性处理
+  * html5与html4结构上的区别
+   <!DOCTYPE html>
+   
+  * css哪些属性可以继承，举例
+  不可继承的：display、margin、border、padding、background、height、min-height、max-height、width、min-width、max-width、overflow、position、left、right、top、bottom、z-index、float、clear、table-layout、vertical-align、page-break-after、page-bread-before和unicode-bidi。
+所有元素可继承：visibility和cursor。
+内联元素可继承：letter-spacing、word-spacing、white-space、line-height、color、font、font-family、font-size、font-style、font-variant、font-weight、text-decoration、text-transform、direction。
+终端块状元素可继承：text-indent和text-align。
+列表元素可继承：list-style、list-style-type、list-style-position、list-style-image。
+  
+  * css3兼容性问题
+  * 浏览器兼容性问题，解决举例
+  Internet Explorer 8为止，IE系列是不支持CSS3的。在IE中要做一些常用的效果如圆角、阴影，
+
+  
+  * 网站SEO问题
+    内容好，不作弊，更新及时，原创多，优质外链多,网站布局、加载速度、网站结够，网站服务器和解析等一定要稳定，站长提交
+	1、网站的物理结构，URL层级的优化；
+    2、网站的导航尽量采用文字导航，不建议使用图片和flash导航；
+    3、网页的 Title、Description、keywords 进行关键词优化；
+    4、网站的图片添加：ALT、Title 标签，并进行文字描述；
+    5、网页的代码瘦身，对于 CSS、JS 采用调用外部文件；
+    6、网页关键词的合理布局，以及关键词密度的控制；
+    7、网站内部链接建设，导出链接数量不宜过多；
+    8、网页尽量设置成：html 静态页面；
+    9、网页内容提倡原创，适当伪原创；
+    10、网站地图设置：Sitemap ;
+    11、网页是否符合W3C标准。
+	
+  * 本地存储web storage与cookie区别
+    localstorage保存数据生命周期长，容量大
+	cookie 4kb
+	cookie 会包含在每个http请求中向服务器发送，这样势必会导致多次发送重复数据
+	cookie 网络传输时并未加密
+  
+  * padding与margin区别
+    margin外部
+	padding内部
+
+  * css 绝对定位与相对定位
+    position:relative参照物
+	position:absolute
+  
+  * css 调用有几种方式，区别
+  1，内部引用，在html文档中在<style>标签里面写的css样式
+<style>
+  bdoy{font-size:14px;} 
+</style>
+2，外部引用，用<link>标签引用外部的css文件，将样式引用到html文档来。
+<link rel="stylesheet" type="text/css" href="style.css">
+ 3，在标签中使用，使用style属性将当前的标签样式改变。
+<div style="color:red"></div>
+  
+  * html5居中自定义
+  文本居中 text-align:center；块居中：margin：auto；垂直居中：vertical-align:middle
+ 
+	 
+  * 文本居中
+  .vertical { 
+      height: 100px; 
+      line-height: 100px;/*值等于元素高度的值*/ 
+    }
+	
+  * 内容多余部分变成省略号...
+     #test{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;width:20px;}
+     上面的样式会将id为test的元素超出20像素之外的文字隐藏，并替换为三个英文半角的句号...
+     text-overflow主要支持2个值：ellipsis为显示省略号，clip为修剪文本，是默认值。
+     white-space:nowrap;的作用是不让元素中的内容折行，在一行显示。
+     overflow:hidden;为溢出隐藏，目的是超过元素宽高的部分不再显示。
+     width:20px;设置了元素的宽度，内容超出这个宽度后会显示省略号。
+  英文自我介绍
+  
+
+      
+
+  

@@ -1,0 +1,54 @@
+sanwik_webserver(公司官网)
+【搭载主机】主机内网地址：192.168.6.220(linux系统)  
+【端口映射】：http://www.sanwik.com(ip地址:120.196.141.101:80) --映射-->192.168.6.220:80(apache) -->192.168.6.220:8282(node)
+
+【简述】：后台语言：nodejs; 界面实现：js,css,html (使用angular框架，js逻辑实现，css页面样式，html页面布局); 
+          网站路径的解析代码亦位于根目录app.js文件内; 网站所有文字内容、数字内容及图片目录均以json格式，存放于根目录app.js文件内;  node通过加载运行app.js打开网站;
+          另外，由于node在linux环境下运行极不稳定，常常自己关闭，因此，采用apache中搭载运行node方式，保持网站稳定性；
+		  SEO优化方面：由于使用angular框架，页面内容动态生成，爬虫无法抓取，即难以在百度/谷歌等浏览器搜索到网站，需要在apache上添加pereneder反向代理服务
+		  
+【环境】：必须：node;apache  ; SEO优化需要：prerender
+
+【当前更新网站代码操作】当前apache，node服务均已设定为开机启动，更新网站代码，只需更新~/sanwik文件夹内容，然后重启电脑。
+
+【从零开始搭建网站环境】
+安装node：
+  node官网：http://nodejs.org 下载解压
+  设置环境变量：$ export PATH=$PATH:/usr/local/node/bin
+  -->编译$ sudo ./configure
+  -->安装$ sudo make   -->sudo  make install
+
+安装apache及配置：
+  1、apache依赖包：apr, apr-util, pcre  下载地址： http://archive.apache.org/dist/apr；http://archive.apache.org/dist/apr；http://pcre.org
+    apr安装：设置环境变量：$ export PATH=$PATH:/usr/local/apr  -->编译$ sudo ./configure  -->安装$ sudo make   -->sudo  make install
+	apr-util安装：设置环境变量：$ export PATH=$PATH:/usr/local/apr-util  -->编译$ sudo ./configure --with-apr=/usr/local/apr/bin/apr-1-config  -->安装$ sudo make   -->sudo  make install
+    pcre安装：设置环境变量：$ export PATH=$PATH:/usr/local/pcre  -->编译$ sudo ./configure  -->安装$ sudo make   -->sudo  make install
+
+  2、编译apache需要软件：yum -y install gcc gcc++ zlib zlib-devel
+     apache官网：http://apache.org  下载解压：httpd
+	 设置环境变量：$ export PATH=$PATH:/usr/local/apache
+	 -->编译$sudo ./configure --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util/ --with-pcre=/usr/local/pcre
+	 -->安装$ sudo make   -->sudo  make install
+	 -->启动测试/usr/local/apache2/bin/httpd –k start  然后用浏览器打开本机IP地址，显示：It works!
+	     
+  3、加载反向代理模块：mod_proxy.so; mod_proxy_http.so;mod_rewrite.so;
+     httpd.conf里面：LoadModule proxy_module modules/mod_proxy.so ; LoadModule proxy_http_module modules/mod_proxy_http.so ; LoadModule proxy_http_module modules/mod_rewrite.so 查看这几行是否注释掉了（默认的apache是注释掉的）
+     若未加载mod_proxy.so; mod_proxy_http.so ;mod_rewrite.so：
+	   cd /apache源码目录下的(下载解压后的目录)/modules/proxy 
+       /apache的安装目录/bin/apxs -c -i -a mod_proxy.c mod_proxy_http.c  mod_rewrite.c 
+	   
+安装pereneder及apache配置内添加pereneder代理服务：(pereneder下载需要翻墙，否则易导致各种失败)：
+
+
+
+【网站内容编辑】
+网站页面内容更改：修改app.js内对应内容： menus_map 网站菜单列表；about_us“关于我们”模块相应内容；products_background“产品展示”模块相关内容；
+                  news_list“公司新闻”模块相关内容；
+				  
+
+【linux环境搭建参考网站】
+http://www.jb51.net/article/59474.htm
+http://jingyan.baidu.com/article/4b07be3c5cd75348b380f3c3.html
+http://blog.51yip.com/apachenginx/1594.html
+http://sharadchhetri.com/2013/08/02/how-to-install-mod_proxy-and-setup-reverse-proxy-in-apache-ubuntu/
+http://www.yearofmoo.com/2012/11/angularjs-and-seo.html

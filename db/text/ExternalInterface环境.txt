@@ -1,0 +1,6 @@
+ExternalInterface class能够运行的环境
+Internet Explorer for Windows (5.0 and later) 
+Firefox 1.0 and later 
+Mozilla 1.7.5 and later 
+Netscape 8.0 and later 
+Safari 1.3 and later. 

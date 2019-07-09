@@ -1,0 +1,1 @@
+insert into  zh_db_streetcar_t.kc_blankcard values ("1","1","1408060401","100","广东电子","test","")
