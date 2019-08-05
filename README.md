@@ -11,4 +11,4 @@ node；mongodb
 
 or   double-click server.bat   //或双击server.bat
 
-##或者不需要mongodb，直接node加载json数据，不详说
+##  或者不需要mongodb，直接node加载json数据，不详说
