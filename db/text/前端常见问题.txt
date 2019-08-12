@@ -1,145 +1,421 @@
-  * ç½‘ç«™ä¼˜åŒ–çš„é—®é¢˜ ï¼ˆåŠ å¿«ç½‘ç«™åŠ è½½é€Ÿåº¦ï¼Œç½‘ç«™è¿è¡Œé€Ÿåº¦ï¼ŒSEOï¼‰
-    å‹ç¼©æ–¹é¢è‚¯å®šè¦çš„
-    èµ„æºåˆå¹¶
-    css sprite å›¾
-	ç¼“å­˜:localstorage; htmlé¡µé¢ <meta http-equiv="expires" content="Sunday 26 October 2008 01:00 GMT" />
-	                   http://kinglyhum.iteye.com/blog/827807
-	éƒ¨åˆ†å†…å®¹å»¶ç¼“åŠ è½½				   
-					
-  * å‰ç«¯ä¸åç«¯çš„æ•°æ®äº¤äº’æ–¹å¼
-    ajaxï¼Œwebsocketï¼Œhttp
-
-	
-  * è·¨åŸŸçš„é—®é¢˜è¦æ€ä¹ˆè§£å†³
-    jsonp
-    æˆ–è€…æœåŠ¡å™¨åšåå‘ä»£ç†ï¼ˆåŸç†åç«¯å¸®æˆ‘ä»¬è§£å†³ä¸åŒåŸŸåçš„é—®é¢˜ï¼Œå› ä¸ºåç«¯æ²¡æœ‰è·¨åŸŸé—®é¢˜ï¼‰
-    æˆ–è€…iframeæ¥å®ç°ï¼ˆæ¯”è¾ƒè½åçš„æŠ€æœ¯ï¼‰
-
-	
-  * htmlï¼ŒjsåŠ è½½åŠæ¸²æŸ“é¡ºåº
-    è‚¯å®šå…ˆæ¸²æŸ“html
-	htmlé‡åˆ°scriptï¼Œæ‰ä¼šåŠ è½½js
-	ä½†æ˜¯scriptæœ€å¥½ä¸è¦æ”¾åœ¨headæ ‡ç­¾ä¸­,è¦ç­‰jsåŠ è½½å®Œï¼Œhtmlæ‰å¯ä»¥ç»§ç»­å¾€ä¸‹æ¸²æŸ“
-    ä¸è¿‡html5ï¼Œscriptæ ‡ç­¾å¥½åƒå¯ä»¥è®¾ç½®å¼‚æ­¥åŠ è½½äº†
-    
-  * ç›¸åº”å¼å¸ƒå±€è¦æ€ä¹ˆå¼„çš„   
-    ç”¨css3çš„@media query
-	Flexå¸ƒå±€
-	layuiã€Bootstrapã€kube
-
-	
-  * é—­åŒ…æ˜¯ä»€ä¹ˆï¼Œæœ‰ä»€ä¹ˆç‰¹æ€§ï¼Œå¯¹é¡µé¢æœ‰ä»€ä¹ˆå½±å“ï¼Œé—­åŒ…ï¼Œä¸¾ä¾‹
-      é—­åŒ…å°±æ˜¯èƒ½å¤Ÿè¯»å–å…¶ä»–å‡½æ•°å†…éƒ¨å˜é‡çš„å‡½æ•°ã€‚
-      http://blog.csdn.net/gaoshanwudi/article/details/7355794 æ­¤é“¾æ¥å¯æŸ¥çœ‹ï¼ˆé—®è¿™ä¸ªé—®é¢˜çš„ä¸æ˜¯ä¸€ä¸ªå…¬å¸ï¼‰
-	  ä¸¾ä¾‹ï¼švar quo = function(status){
-	            return {get_status:function(){return status;}}
-	        }
-	
-  * ajaxè¯·æ±‚çš„æ—¶å€™get å’Œpostæ–¹å¼çš„åŒºåˆ«
-     ä¸€ä¸ªåœ¨urlåé¢ ä¸€ä¸ªæ”¾åœ¨è™šæ‹Ÿè½½ä½“é‡Œé¢
-     æœ‰å¤§å°é™åˆ¶
-     å®‰å…¨é—®é¢˜
-     åº”ç”¨ä¸åŒ ä¸€ä¸ªæ˜¯è®ºå›ç­‰åªéœ€è¦è¯·æ±‚çš„ï¼Œä¸€ä¸ªæ˜¯ç±»ä¼¼ä¿®æ”¹å¯†ç çš„
-
-  * callå’Œapplyçš„åŒºåˆ«
-    Object.call(this,obj1,obj2,obj3)
-    Object.apply(this,arguments)
-
-  * ajaxè¯·æ±‚æ—¶ï¼Œå¦‚ä½•è§£é‡Šjsonæ•°æ®
-    ä½¿ç”¨eval parse é‰´äºå®‰å…¨æ€§è€ƒè™‘ ä½¿ç”¨parseæ›´é è°±
-	
-  * è§£é‡Šjsonpçš„åŸç†ï¼Œä»¥åŠä¸ºä»€ä¹ˆä¸æ˜¯çœŸæ­£çš„ajax,ä¸¾ä¾‹ï¼š
-     åŠ¨æ€åˆ›å»ºscriptæ ‡ç­¾ï¼Œå›è°ƒå‡½æ•°
-     Ajaxæ˜¯é¡µé¢æ— åˆ·æ–°è¯·æ±‚æ•°æ®æ“ä½œ
-	 
-  * å‰ç«¯é¡µé¢æœ‰å“ªä¸‰å±‚æ„æˆï¼Œåˆ†åˆ«æ˜¯ä»€ä¹ˆ?ä½œç”¨æ˜¯ä»€ä¹ˆ?
-     ç»“æ„å±‚ Html è¡¨ç¤ºå±‚ CSS è¡Œä¸ºå±‚ js
-
-  * Javascript åŸºç¡€ã€JSé¢å‘å¯¹è±¡å®ç°åŸç†ã€é—­åŒ…æœºåˆ¶ã€ä½œç”¨åŸŸ
+  ¼òÀú¸ÕĞ´ºÃ¾Í´Ò´ÒÅÜÈ¥ÃæÊÔÁË£¬±»ÎÊµÄÓĞµããÂ±Æ£¬àÅ£¬Èç¹ûÎÒÊÇÃæÊÔ¹ÙÒ²²»»áÕĞÎÒ£¬°×Ï¹ÁËÆäÖĞÒ»¸ö»¹Í¦ÊÊºÏÎÒµÄ¹«Ë¾£¬
+  ÎÒ¾ÍÊÇÌ«¾ÃÃ»ÍæÕâÍæÒâÁË£¬×Ü½áÁËÏÂÎÊÌâ£¬Ç°¶Ë²»¾ÍÕâµã¶«Î÷Ã´£¬ÎÒ¾Í²»ĞÅÁË£¬¿´ÏÂ´Î»¹ÄÜÎÊ³ö¸ö»¨£¬ºß£¡
   
-  * ç§»åŠ¨ç«¯ä¸PCç«¯çš„åŒºåˆ«
-     åˆ†è¾¨ç‡
-	 webkitå†…æ ¸çš„æµè§ˆå™¨å’Œchromeï¼Œucï¼Œqqï¼Œå°ç±³æ‰‹æœºæµè§ˆå™¨
-	 é¼ æ ‡ï¼Œé”®ç›˜çš„äº¤äº’å˜æˆäº†è§¦æ‘¸ä»¥åŠæ‰‹åŠ¿çš„äº¤äº’
-	 ä¸Native Appäº’åŠ¨
-  
-  * html5æµè§ˆå™¨çš„æ”¯æŒæƒ…å†µ
-    IE9ï¼Œchromeï¼Œfirefox 4ï¼Œoperaï¼Œsafari 5
-  * html5åœ¨æµè§ˆå™¨ä¸Šçš„å…¼å®¹é—®é¢˜
-    IE7 json3.js  ï¼›IE 8 html5shiv.js;  jQuery1.7å¼€å§‹å¯å¢åŠ äº†å¯¹HTML5æ ‡ç­¾çš„å…¼å®¹æ€§å¤„ç†
-  * html5ä¸html4ç»“æ„ä¸Šçš„åŒºåˆ«
-   <!DOCTYPE html>
-   
-  * csså“ªäº›å±æ€§å¯ä»¥ç»§æ‰¿ï¼Œä¸¾ä¾‹
-  ä¸å¯ç»§æ‰¿çš„ï¼šdisplayã€marginã€borderã€paddingã€backgroundã€heightã€min-heightã€max-heightã€widthã€min-widthã€max-widthã€overflowã€positionã€leftã€rightã€topã€bottomã€z-indexã€floatã€clearã€table-layoutã€vertical-alignã€page-break-afterã€page-bread-beforeå’Œunicode-bidiã€‚
-æ‰€æœ‰å…ƒç´ å¯ç»§æ‰¿ï¼švisibilityå’Œcursorã€‚
-å†…è”å…ƒç´ å¯ç»§æ‰¿ï¼šletter-spacingã€word-spacingã€white-spaceã€line-heightã€colorã€fontã€font-familyã€font-sizeã€font-styleã€font-variantã€font-weightã€text-decorationã€text-transformã€directionã€‚
-ç»ˆç«¯å—çŠ¶å…ƒç´ å¯ç»§æ‰¿ï¼štext-indentå’Œtext-alignã€‚
-åˆ—è¡¨å…ƒç´ å¯ç»§æ‰¿ï¼šlist-styleã€list-style-typeã€list-style-positionã€list-style-imageã€‚
-  
-  * css3å…¼å®¹æ€§é—®é¢˜
-  * æµè§ˆå™¨å…¼å®¹æ€§é—®é¢˜ï¼Œè§£å†³ä¸¾ä¾‹
-  Internet Explorer 8ä¸ºæ­¢ï¼ŒIEç³»åˆ—æ˜¯ä¸æ”¯æŒCSS3çš„ã€‚åœ¨IEä¸­è¦åšä¸€äº›å¸¸ç”¨çš„æ•ˆæœå¦‚åœ†è§’ã€é˜´å½±ï¼Œ
-
-  
-  * ç½‘ç«™SEOé—®é¢˜
-    å†…å®¹å¥½ï¼Œä¸ä½œå¼Šï¼Œæ›´æ–°åŠæ—¶ï¼ŒåŸåˆ›å¤šï¼Œä¼˜è´¨å¤–é“¾å¤š,ç½‘ç«™å¸ƒå±€ã€åŠ è½½é€Ÿåº¦ã€ç½‘ç«™ç»“å¤Ÿï¼Œç½‘ç«™æœåŠ¡å™¨å’Œè§£æç­‰ä¸€å®šè¦ç¨³å®šï¼Œç«™é•¿æäº¤
-	1ã€ç½‘ç«™çš„ç‰©ç†ç»“æ„ï¼ŒURLå±‚çº§çš„ä¼˜åŒ–ï¼›
-    2ã€ç½‘ç«™çš„å¯¼èˆªå°½é‡é‡‡ç”¨æ–‡å­—å¯¼èˆªï¼Œä¸å»ºè®®ä½¿ç”¨å›¾ç‰‡å’Œflashå¯¼èˆªï¼›
-    3ã€ç½‘é¡µçš„ Titleã€Descriptionã€keywords è¿›è¡Œå…³é”®è¯ä¼˜åŒ–ï¼›
-    4ã€ç½‘ç«™çš„å›¾ç‰‡æ·»åŠ ï¼šALTã€Title æ ‡ç­¾ï¼Œå¹¶è¿›è¡Œæ–‡å­—æè¿°ï¼›
-    5ã€ç½‘é¡µçš„ä»£ç ç˜¦èº«ï¼Œå¯¹äº CSSã€JS é‡‡ç”¨è°ƒç”¨å¤–éƒ¨æ–‡ä»¶ï¼›
-    6ã€ç½‘é¡µå…³é”®è¯çš„åˆç†å¸ƒå±€ï¼Œä»¥åŠå…³é”®è¯å¯†åº¦çš„æ§åˆ¶ï¼›
-    7ã€ç½‘ç«™å†…éƒ¨é“¾æ¥å»ºè®¾ï¼Œå¯¼å‡ºé“¾æ¥æ•°é‡ä¸å®œè¿‡å¤šï¼›
-    8ã€ç½‘é¡µå°½é‡è®¾ç½®æˆï¼šhtml é™æ€é¡µé¢ï¼›
-    9ã€ç½‘é¡µå†…å®¹æå€¡åŸåˆ›ï¼Œé€‚å½“ä¼ªåŸåˆ›ï¼›
-    10ã€ç½‘ç«™åœ°å›¾è®¾ç½®ï¼šSitemap ;
-    11ã€ç½‘é¡µæ˜¯å¦ç¬¦åˆW3Cæ ‡å‡†ã€‚
-	
-  * æœ¬åœ°å­˜å‚¨web storageä¸cookieåŒºåˆ«
-    localstorageä¿å­˜æ•°æ®ç”Ÿå‘½å‘¨æœŸé•¿ï¼Œå®¹é‡å¤§
-	cookie 4kb
-	cookie ä¼šåŒ…å«åœ¨æ¯ä¸ªhttpè¯·æ±‚ä¸­å‘æœåŠ¡å™¨å‘é€ï¼Œè¿™æ ·åŠ¿å¿…ä¼šå¯¼è‡´å¤šæ¬¡å‘é€é‡å¤æ•°æ®
-	cookie ç½‘ç»œä¼ è¾“æ—¶å¹¶æœªåŠ å¯†
-  
-  * paddingä¸marginåŒºåˆ«
-    marginå¤–éƒ¨
-	paddingå†…éƒ¨
-
-  * css ç»å¯¹å®šä½ä¸ç›¸å¯¹å®šä½
-    position:relativeå‚ç…§ç‰©
-	position:absolute
-  
-  * css è°ƒç”¨æœ‰å‡ ç§æ–¹å¼ï¼ŒåŒºåˆ«
-  1ï¼Œå†…éƒ¨å¼•ç”¨ï¼Œåœ¨htmlæ–‡æ¡£ä¸­åœ¨<style>æ ‡ç­¾é‡Œé¢å†™çš„cssæ ·å¼
-<style>
-  bdoy{font-size:14px;} 
-</style>
-2ï¼Œå¤–éƒ¨å¼•ç”¨ï¼Œç”¨<link>æ ‡ç­¾å¼•ç”¨å¤–éƒ¨çš„cssæ–‡ä»¶ï¼Œå°†æ ·å¼å¼•ç”¨åˆ°htmlæ–‡æ¡£æ¥ã€‚
-<link rel="stylesheet" type="text/css" href="style.css">
- 3ï¼Œåœ¨æ ‡ç­¾ä¸­ä½¿ç”¨ï¼Œä½¿ç”¨styleå±æ€§å°†å½“å‰çš„æ ‡ç­¾æ ·å¼æ”¹å˜ã€‚
-<div style="color:red"></div>
-  
-  * html5å±…ä¸­è‡ªå®šä¹‰
-  æ–‡æœ¬å±…ä¸­ text-align:centerï¼›å—å±…ä¸­ï¼šmarginï¼šautoï¼›å‚ç›´å±…ä¸­ï¼švertical-align:middle
+    * html5¾ÓÖĞ×Ô¶¨Òå
+    ÎÄ±¾¾ÓÖĞ text-align:center£»
+    ¿é¾ÓÖĞ£ºmargin£ºauto£»
+    ´¹Ö±¾ÓÖĞ£ºvertical-align:middle
  
 	 
-  * æ–‡æœ¬å±…ä¸­
+  * ÎÄ±¾¾ÓÖĞ
   .vertical { 
       height: 100px; 
-      line-height: 100px;/*å€¼ç­‰äºå…ƒç´ é«˜åº¦çš„å€¼*/ 
+      line-height: 100px;/*ÖµµÈÓÚÔªËØ¸ß¶ÈµÄÖµ*/ 
     }
 	
-  * å†…å®¹å¤šä½™éƒ¨åˆ†å˜æˆçœç•¥å·...
+  * html5ä¯ÀÀÆ÷µÄÖ§³ÖÇé¿ö
+    IE9£¬chrome£¬firefox 4£¬opera£¬safari 5
+  * html5ÔÚä¯ÀÀÆ÷ÉÏµÄ¼æÈİÎÊÌâ
+    IE7 json3.js  £»IE 8 html5shiv.js;  jQuery1.7¿ªÊ¼¿ÉÔö¼ÓÁË¶ÔHTML5±êÇ©µÄ¼æÈİĞÔ´¦Àí
+  * html5Óëhtml4½á¹¹ÉÏµÄÇø±ğ
+   <!DOCTYPE html>
+   
+   *html5ĞÂÌØĞÔ
+  1¡¢HTML5 ĞÂÔªËØ<article>¡¢<aside>¡¢<command>¡¢<details>¡¢<dialog>¡¢<summary>¡¢<mark>¡¢<nav>¡¢<progress>...
+  2.HTML5 Canvas <canvas id="myCanvas"></canvas>
+     <script>
+       var c=document.getElementById("myCanvas");
+       var ctx=c.getContext("2d");
+       ctx.fillStyle="#FF0000";
+       ctx.fillRect(0,0,150,75);
+     </script>
+  3.HTML5 ÍÏ·Å<img draggable="true">
+  4.HTML5 µØÀí¶¨Î» HTML5 Geolocation API ÓÃÓÚ»ñµÃÓÃ»§µÄµØÀíÎ»ÖÃ¡£¼øÓÚ¸ÃÌØĞÔ¿ÉÄÜÇÖ·¸ÓÃ»§µÄÒşË½£¬³ı·ÇÓÃ»§Í¬Òâ£¬·ñÔòÓÃ»§Î»ÖÃĞÅÏ¢ÊÇ²»¿ÉÓÃµÄ¡£
+  5.HTML5  Audio(ÒôÆµ)¡¢Video(ÊÓÆµ)
+     <audio controls>
+       <source src="horse.ogg" type="audio/ogg">
+        <source src="horse.mp3" type="audio/mpeg">
+		<source src="movie.mp4" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+     </audio>
+  6.HTML5 Input ÀàĞÍcolor¡¢date¡¢datetime¡¢datetime-local¡¢email¡¢month¡¢number¡¢range¡¢search¡¢tel¡¢time¡¢url¡¢week
+  7.HTML5 ±íµ¥ÔªËØ<datalist>;<keygen>;<output>
+  8.HTML5 ±íµ¥ÊôĞÔ
+  <form>ĞÂÊôĞÔ£ºautocomplete¡¢novalidate
+  <input>ĞÂÊôĞÔ£ºautocomplete¡¢autofocus¡¢form¡¢formaction¡¢formenctype¡¢formmethod¡¢formnovalidate¡¢formtarget¡¢height and width¡¢list¡¢min and max¡¢multiple¡¢pattern (regexp)¡¢placeholder¡¢required¡¢step
+  9.HTML5 ÓïÒåÔªËØ<header>;<nav>;<section>;<article>;<aside>;<figcaption>;<figure>;<footer>
+  10.HTML5 Web ´æ´¢
+    sessionStorage¡ª¿Í»§¶ËÊı¾İ´æ´¢£¬Ö»ÄÜÎ¬³ÖÔÚµ±Ç°»á»°·¶Î§ÄÚ¡£
+             sessionStorage ·½·¨Õë¶ÔÒ»¸ö session ½øĞĞÊı¾İ´æ´¢¡£µ±ÓÃ»§¹Ø±Õä¯ÀÀÆ÷´°¿Úºó£¬Êı¾İ»á±»É¾³ı¡£
+    localStorage¡ª¿Í»§¶ËÊı¾İ´æ´¢£¬ÄÜÎ¬³ÖÔÚ¶à¸ö»á»°·¶Î§ÄÚ¡£
+             localStorage ¶ÔÏó´æ´¢µÄÊı¾İÃ»ÓĞÊ±¼äÏŞÖÆ¡£µÚ¶şÌì¡¢µÚ¶şÖÜ»òÏÂÒ»ÄêÖ®ºó£¬Êı¾İÒÀÈ»¿ÉÓÃ¡£
+    ¶ÔÓÚ´óÁ¿¸´ÔÓÊı¾İ½á¹¹£¬Ò»°ãÊ¹ÓÃIndexDB
+  11.HTML5 ÀëÏßWebÓ¦ÓÃ£¨Ó¦ÓÃ³ÌĞò»º´æ£©
+  12.HTML5 Web Workers
+  13.HTML5 SSE
+  14.HTML5 WebSocket
+     
+  * cssÄÄĞ©ÊôĞÔ¿ÉÒÔ¼Ì³Ğ£¬¾ÙÀı
+  ²»¿É¼Ì³ĞµÄ£ºdisplay¡¢margin¡¢border¡¢padding¡¢background¡¢height¡¢min-height¡¢max-height¡¢width¡¢min-width¡¢max-width¡¢overflow¡¢position¡¢left¡¢right¡¢top¡¢bottom¡¢z-index¡¢float¡¢clear¡¢table-layout¡¢vertical-align¡¢page-break-after¡¢page-bread-beforeºÍunicode-bidi¡£
+ËùÓĞÔªËØ¿É¼Ì³Ğ£ºvisibilityºÍcursor¡£
+ÄÚÁªÔªËØ¿É¼Ì³Ğ£ºletter-spacing¡¢word-spacing¡¢white-space¡¢line-height¡¢color¡¢font¡¢font-family¡¢font-size¡¢font-style¡¢font-variant¡¢font-weight¡¢text-decoration¡¢text-transform¡¢direction¡£
+ÖÕ¶Ë¿é×´ÔªËØ¿É¼Ì³Ğ£ºtext-indentºÍtext-align¡£
+ÁĞ±íÔªËØ¿É¼Ì³Ğ£ºlist-style¡¢list-style-type¡¢list-style-position¡¢list-style-image¡£
+
+  * paddingÓëmarginÇø±ğ
+    marginÍâ²¿
+	paddingÄÚ²¿
+
+  * css ¾ø¶Ô¶¨Î»ÓëÏà¶Ô¶¨Î»
+    position:relative²ÎÕÕÎï
+	position:absolute
+  
+  * css µ÷ÓÃÓĞ¼¸ÖÖ·½Ê½£¬Çø±ğ
+  1£¬ÄÚ²¿ÒıÓÃ£¬ÔÚhtmlÎÄµµÖĞÔÚ<style>±êÇ©ÀïÃæĞ´µÄcssÑùÊ½
+   <style>
+      body{font-size:14px;} 
+    </style>
+  2£¬Íâ²¿ÒıÓÃ£¬ÓÃ<link>±êÇ©ÒıÓÃÍâ²¿µÄcssÎÄ¼ş£¬½«ÑùÊ½ÒıÓÃµ½htmlÎÄµµÀ´¡£
+    <link rel="stylesheet" type="text/css" href="style.css">
+  3£¬ÔÚ±êÇ©ÖĞÊ¹ÓÃ£¬Ê¹ÓÃstyleÊôĞÔ½«µ±Ç°µÄ±êÇ©ÑùÊ½¸Ä±ä¡£
+    <div style="color:red"></div>
+  
+
+	
+  * ÄÚÈİ¶àÓà²¿·Ö±ä³ÉÊ¡ÂÔºÅ...
      #test{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;width:20px;}
-     ä¸Šé¢çš„æ ·å¼ä¼šå°†idä¸ºtestçš„å…ƒç´ è¶…å‡º20åƒç´ ä¹‹å¤–çš„æ–‡å­—éšè—ï¼Œå¹¶æ›¿æ¢ä¸ºä¸‰ä¸ªè‹±æ–‡åŠè§’çš„å¥å·...
-     text-overflowä¸»è¦æ”¯æŒ2ä¸ªå€¼ï¼šellipsisä¸ºæ˜¾ç¤ºçœç•¥å·ï¼Œclipä¸ºä¿®å‰ªæ–‡æœ¬ï¼Œæ˜¯é»˜è®¤å€¼ã€‚
-     white-space:nowrap;çš„ä½œç”¨æ˜¯ä¸è®©å…ƒç´ ä¸­çš„å†…å®¹æŠ˜è¡Œï¼Œåœ¨ä¸€è¡Œæ˜¾ç¤ºã€‚
-     overflow:hidden;ä¸ºæº¢å‡ºéšè—ï¼Œç›®çš„æ˜¯è¶…è¿‡å…ƒç´ å®½é«˜çš„éƒ¨åˆ†ä¸å†æ˜¾ç¤ºã€‚
-     width:20px;è®¾ç½®äº†å…ƒç´ çš„å®½åº¦ï¼Œå†…å®¹è¶…å‡ºè¿™ä¸ªå®½åº¦åä¼šæ˜¾ç¤ºçœç•¥å·ã€‚
-  è‹±æ–‡è‡ªæˆ‘ä»‹ç»
+     ÉÏÃæµÄÑùÊ½»á½«idÎªtestµÄÔªËØ³¬³ö20ÏñËØÖ®ÍâµÄÎÄ×ÖÒş²Ø£¬²¢Ìæ»»ÎªÈı¸öÓ¢ÎÄ°ë½ÇµÄ¾äºÅ...
+     text-overflowÖ÷ÒªÖ§³Ö2¸öÖµ£ºellipsisÎªÏÔÊ¾Ê¡ÂÔºÅ£¬clipÎªĞŞ¼ôÎÄ±¾£¬ÊÇÄ¬ÈÏÖµ¡£
+     white-space:nowrap;µÄ×÷ÓÃÊÇ²»ÈÃÔªËØÖĞµÄÄÚÈİÕÛĞĞ£¬ÔÚÒ»ĞĞÏÔÊ¾¡£
+     overflow:hidden;ÎªÒç³öÒş²Ø£¬Ä¿µÄÊÇ³¬¹ıÔªËØ¿í¸ßµÄ²¿·Ö²»ÔÙÏÔÊ¾¡£
+     width:20px;ÉèÖÃÁËÔªËØµÄ¿í¶È£¬ÄÚÈİ³¬³öÕâ¸ö¿í¶Èºó»áÏÔÊ¾Ê¡ÂÔºÅ¡£
+  
+  
+  * css3¼æÈİĞÔÎÊÌâ
+  * ä¯ÀÀÆ÷¼æÈİĞÔÎÊÌâ£¬½â¾ö¾ÙÀı
+  Internet Explorer 8ÎªÖ¹£¬IEÏµÁĞÊÇ²»Ö§³ÖCSS3µÄ¡£ÔÚIEÖĞÒª×öÒ»Ğ©³£ÓÃµÄĞ§¹ûÈçÔ²½Ç¡¢ÒõÓ°£¬
+
+*css3ĞÂÌØĞÔ
+  1¡¢±ß¿ò£¨Borders£©ÓÃCSS3£¬Äã¿ÉÒÔ´´½¨Ô²½Ç±ß¿ò£¬Ìí¼ÓÒõÓ°¿ò£¬²¢×÷Îª±ß½çµÄĞÎÏó¶ø²»Ê¹ÓÃÉè¼Æ³ÌĞòborder-image¡¢border-radius¡¢box-shadow
+  2¡¢CSS3ÖĞ°üº¬¼¸¸öĞÂµÄ±³¾°ÊôĞÔ£¬Ìá¹©¸ü´ó±³¾°ÔªËØ¿ØÖÆ¡£background-clip¡¢background-origin¡¢background-size
+  3¡¢CSS3 ¶¨ÒåÁËÁ½ÖÖÀàĞÍµÄ½¥±ä£¨gradients£©£ºbackground: linear-gradient(direction, color-stop1, color-stop2, ...);   background: radial-gradient(center, shape size, start-color, ..., last-color);
+  4¡¢ÎÄ±¾Ğ§¹û£ºhanging-punctuation;punctuation-trim;text-align-last;text-emphasis;text-justify;text-outline;text-overflow;text-shadow;text-wrap;word-break;word-wrap
+  5¡¢CSS3 ×ÖÌå@font-face{font-family: myFirstFont;
+                          src: url(sansation_light.woff);}
+  6¡¢CSS3 ×ª»»ºÍ±äĞÎ transform;perspective;translate(x,y);scale(x,y);rotate(angle)
+  7¡¢CSS3 ¹ı¶É transition
+  8¡¢CSS3 ¶¯»­@keyframes ;animation;animation-duration;animation-delay...
+  9¡¢CSS3 ¶àÁĞcolumn-count...
+  10¡¢CSS3 ºĞÄ£ĞÍresize£¬box-sizing£¬outline
+  11¡¢CSS3ÉìËõ²¼¾ÖºĞÄ£ĞÍ(µ¯ĞÔºĞ)display;flex-direction;justify-content;align-items;align-content;flex-wrap...
+  12¡¢CSS3 ¶àÃ½Ìå²éÑ¯@media
   
 
-      
+	
+  * ÏìÓ¦Ê½²¼¾ÖÒªÔõÃ´ÅªµÄ   
+    ÓÃcss3µÄ@media query
+	Flex²¼¾Ö
+	Ê¹ÓÃBootstrap¡¢layui¡¢kube...
 
+
+	
+  * Javascript »ù´¡¡¢JSÃæÏò¶ÔÏóÊµÏÖÔ­Àí¡¢±Õ°ü»úÖÆ¡¢×÷ÓÃÓò
+  £¨Ì«·á¸»ÁË£¬Ğ´²»Íê£¬×ÔÓÉ·¢»Ó£©
   
+  * ±Õ°üÊÇÊ²Ã´£¬ÓĞÊ²Ã´ÌØĞÔ£¬¶ÔÒ³ÃæÓĞÊ²Ã´Ó°Ïì£¬±Õ°ü£¬¾ÙÀı
+      ±Õ°ü¾ÍÊÇÄÜ¹»¶ÁÈ¡ÆäËûº¯ÊıÄÚ²¿±äÁ¿µÄº¯Êı¡£
+      http://blog.csdn.net/gaoshanwudi/article/details/7355794 ´ËÁ´½Ó¿É²é¿´£¨ÈıĞÇÎÊÌâ£©
+	  ¾ÙÀı£ºvar quo = function(status){
+	            return {get_status:function(){return status;}}
+	        }
+	ÁíÒ»²»´íµÄ½âÊÍhttps://www.cnblogs.com/mrzl/p/4432323.html
+    Ñ§ÊõËµ·¨£º±Õ°üÊÇÒ»¸öÓµÓĞĞí¶à±äÁ¿ºÍ°ó¶¨ÁËÕâĞ©±äÁ¿µÄ»·¾³µÄ±í´ïÊ½£¨Í¨³£ÊÇÒ»¸öº¯Êı£©£¬Òò¶øÕâĞ©±äÁ¿Ò²ÊÇ¸Ã±í´ïÊ½µÄÒ»²¿·Ö¡££¨ÄãÄÜ¿´¶®Âğ£¿·´ÕıÎÒ²»ÄÜ£©
+    ×¨ÒµËµ·¨£ºº¯Êı¶ÔÏó¿ÉÒÔÍ¨¹ı×÷ÓÃÓòÁ´Ïà»¥¹ØÁªÆğÀ´£¬º¯ÊıÌåÄÚ²¿µÄ±äÁ¿¶¼¿ÉÒÔ±£´æÔÚº¯Êı×÷ÓÃÓòÄÚ¡££¨Õâ¸öÄã¶®Âğ£¿ÎÒÂÔ¶®£©
+    Í¨Ë×Ëµ·¨£ºËùÓĞJavaScriptº¯Êı¶¼ÊÇ±Õ°ü,ÒòÎªº¯Êı¶¼ÊÇ¶ÔÏó£¬¶¼¹ØÁªµ½×÷ÓÃÓò£¬²¢ÇÒ±äÁ¿¶¼±£´æÔÚº¯Êı×÷ÓÃÓòÄÚ¡££¨Õâ¸öÓĞµã³¶£¬À§»óÎÒµÄ±Õ°ü£¬¾ÍÕâÃ´¼òµ¥£©
+µ«ÊÇÎÒÃÇÍ¨³£ËµµÄ±Õ°üÊÇµ±Ò»¸öº¯ÊıÇ¶Ì×ÁíÒ»¸öº¯Êı£¬Íâ²¿º¯Êı½«Ç¶Ì×º¯Êı¶ÔÏó×÷Îª·µ»ØÖµ·µ»ØµÄÊ±ºò£¬ÎÒÃÇ°ÑÕâÖÖÇé¿ö³ÆÎª±Õ°ü¡£
+      function func() {
+            var num = 0;            //ÉùÃ÷¾Ö²¿±äÁ¿£ºnum
+            function f() {          //Ç¶Ì×º¯Êı£¬ÔÚ×÷ÓÃÓòÀï
+                console.log(++num)
+            }
+            return f();             //µ÷ÓÃÇ¶Ì×º¯Êıf,²¢½«fµÄÖ´ĞĞ½á¹û·µ»Ø
+        }
+        func();                     //Êä³ö£º1
+		
+		
+		
+* for Óëforeach µÄÇø±ğ
+    foreachÆäÊµÊÇforµÄ¼ò»¯°æ£¨´ÓĞ´·¨ÉÏ£¬foreach²»ÓÃÈ¥¹Ü±»Ñ­»·ÌåµÄ³¤¶ÈµÈ£¬Ö±½Ó±©Á¦±éÀú¡£µ«ÊÇforeachÊÇÖ»ÄÜ×öÑ­»·±éÀúµÄ£¬²»ÄÜ¶Ô±éÀú½á¹û½øĞĞ¸ü¸Ä£©
+    for¿ÉÒÔÖĞ¶Ï£¬foreach²»ÄÜÖĞ¶Ï
+	
+
+* jsÇ¿ÖÆ×ª»»ÓëÈõ×ª»»
+Ç¿ÖÆ×ª»»£º×ª»»ÎªÊıÖµÀàĞÍ£ºNumber(mix)¡¢parseInt(string,radix)¡¢parseFloat(string)
+                ×ª»»Îª×Ö·û´®ÀàĞÍ£ºtoString(radix)¡¢String(mix)
+                ×ª»»Îª²¼¶ûÀàĞÍ£ºBoolean(mix)
+Èõ×ª»»£ºisNaN(mix)£»µİÔöµİ¼õ²Ù×÷·û£»¼Ó·¨ÔËËã²Ù×÷·û£»³Ë³ı¡¢¼õºÅÔËËã·û¡¢È¡Ä£ÔËËã·û£» 
+             Âß¼­²Ù×÷·û£¨!¡¢&&¡¢||£© Âß¼­·Ç£¨£¡£©£»¹ØÏµ²Ù×÷·û£¨<, >, ?, >=£© £»ÏàµÈ²Ù×÷·û£¨==£©
+
+
+* Í¼Æ¬¹ö¶¯ÀÁ¼ÓÔØÊµÏÖ²½Öè
+  ¹ö¶¯¼ÓÔØ windows scoll¹ö¶¯¼àÌı,µ±»¬¶¯µ½×îÏÂÃæÊ±,´¥·¢¼ÓÔØ¶¯×÷,ÏòºóÌ¨·¢ÆğajaxÇëÇó,Í¬Ê±¼ÇÂ¼µ±Ç°Ò³Êı
+  ÀÁ¼ÓÔØ Ö÷ÒªÀûÓÃµÄÔ­Àí¾ÍÊÇÏÈ²»¸øÉèÖÃsrc£¬¶øÊÇ°ÑÍ¼Æ¬µÄÂ·¾¶·ÅÔÚdata-srcÖĞ£¬µÈ´ıÍ¼Æ¬±»¼ÓÔØµÄÊ±ºò½«Â·¾¶È¡³ö·Åµ½srcÖĞ¡£ÅĞ¶ÏÔªËØÊÇ·ñÔÚ¿ÉÊÓÇøÓò¡£
+
+	
+  * html£¬js¼ÓÔØ¼°äÖÈ¾Ë³Ğò
+    ¿Ï¶¨ÏÈäÖÈ¾html
+	htmlÓöµ½script£¬²Å»á¼ÓÔØjs
+	µ«ÊÇscript×îºÃ²»Òª·ÅÔÚhead±êÇ©ÖĞ,ÒªµÈjs¼ÓÔØÍê£¬html²Å¿ÉÒÔ¼ÌĞøÍùÏÂäÖÈ¾
+    ²»¹ıhtml5£¬script±êÇ©ºÃÏñ¿ÉÒÔÉèÖÃÒì²½¼ÓÔØÁË
+	
+  * ÍøÕ¾ÓÅ»¯µÄÎÊÌâ £¨¼Ó¿ìÍøÕ¾¼ÓÔØËÙ¶È£¬ÍøÕ¾ÔËĞĞËÙ¶È£¬SEO£©
+    Ñ¹Ëõ·½Ãæ¿Ï¶¨ÒªµÄ
+    ×ÊÔ´ºÏ²¢
+	»º´æ:localstorage; htmlÒ³Ãæ <meta http-equiv="expires" content="Sunday 26 October 2008 01:00 GMT" />
+	                   http://kinglyhum.iteye.com/blog/827807
+	²¿·ÖÄÚÈİÑÓ»º¼ÓÔØ	
+    css sprite Í¼	
+					
+  * Ç°¶ËÓëºó¶ËµÄÊı¾İ½»»¥·½Ê½
+    ajax£¬websocket£¬http
+
+	
+  * Ç°¶Ë¿çÓòµÄÎÊÌâÒªÔõÃ´½â¾ö
+    1¡¢×î¼òµ¥Ò²×î³£¼û£ºÊ¹ÓÃjsonp £¬¼´json with padding£¨ÄÚÌî³ä£©£¬¹ËÃûË¼Òå£¬¾ÍÊÇ°ÑJSONÌî³äµ½Ò»¸öºĞ×ÓÀï
+       ºËĞÄË¼Ïë£ºä¯ÀÀÆ÷µÄscript¡¢img¡¢iframe±êÇ©ÊÇ²»ÊÜÍ¬Ô´²ßÂÔÏŞÖÆµÄ £¬ËùÒÔÍ¨¹ıscript±êÇ©ÒıÈëÒ»¸öjsÎÄ¼ş£¬Õâ¸öjsÎÄ¼şÔØÈë³É¹¦ºó»áÖ´ĞĞÎÒÃÇÔÚurl²ÎÊıÖĞÖ¸¶¨µÄcallbackº¯Êı£¬²¢°Ñ°ÑÎÒÃÇĞèÒªµÄjsonÊı¾İ×÷Îª²ÎÊı´«Èë¡£ÔÚ·şÎñÆ÷¶Ë£¬µ±req.params²ÎÊıÖĞ´øÓĞcallbackÊôĞÔÊ±£¬Ôò°ÑÊı¾İ×÷ÎªcallbackµÄ²ÎÊıÖ´ĞĞ£¬²¢Æ´½Ó³ÉÒ»¸ö×Ö·û´®ºó·µ»Ø¡£ 
+       - ÓÅµã£º¼æÈİĞÔºÃ£¬ÔÚºÜ¹ÅÀÏµÄä¯ÀÀÆ÷ÖĞÒ²¿ÉÒÔÓÃ£¬¼òµ¥Ò×ÓÃ£¬Ö§³Öä¯ÀÀÆ÷Óë·şÎñÆ÷Ë«ÏòÍ¨ĞÅ¡£ 
+       - È±µã£ºÖ»Ö§³ÖGETÇëÇó£¬ÇÒÖ»Ö§³Ö¿çÓòHTTPÇëÇóÕâÖÖÇé¿ö£¨²»Ö§³ÖHTTPS£©
+	2¡¢Ò»ÀÍÓÀÒİ£ºÖ±½ÓÔÚ·şÎñÆ÷¶ËÉèÖÃ¿çÓò×ÊÔ´·ÃÎÊ CORS£¨Cross-Origin Resource Sharing£©£¬ÉèÖÃRequest HeaderÍ·ÖĞAccess-Control-Allow-OriginÎªÖ¸¶¨¿É»ñÈ¡Êı¾İµÄÓòÃû
+       ºËĞÄË¼Ïë£ºÔÚ·şÎñÆ÷¶ËÍ¨¹ı¼ì²éÇëÇóÍ·²¿µÄorigin£¬´Ó¶ø¾ö¶¨ÇëÇóÓ¦¸Ã³É¹¦»¹ÊÇÊ§°Ü¡£¾ßÌåµÄ·½·¨ÊÇÔÚ·şÎñ¶ËÉèÖÃResponse HeaderÏìÓ¦Í·ÖĞµÄAccess-Control-Allow-OriginÎª¶ÔÓ¦µÄÓòÃû£¬ÊµÏÖÁËCORS£¨¿çÓò×ÊÔ´¹²Ïí£©£¬ÕâÀï³öÓÚÔÚ°²È«ĞÔ·½ÃæµÄ¿¼ÂÇ¾ÍÊÇ¾¡Á¿²»ÒªÓÃ *£¬µ«¶ÔÓÚÒ»Ğ©²»ÖØÒªµÄÊı¾İÔòËæÒâ£¬ÀıÈçÍ¼Æ¬¡£
+	3¡¢¼òµ¥ÓĞĞ§£ºÖ±½ÓÇëÇóÒ»ÕÅÍ¼Æ¬
+	   ÒòÎªÔÚä¯ÀÀÆ÷ÖĞ£¬JS½Å±¾ºÍÍ¼Æ¬ÊÇ¿ÉÒÔ¿çÓòµÄ£¬ËùÒÔÎÒÃÇ¿ÉÒÔÖ±½ÓĞÂ½¨Ò»¸öÍ¼Æ¬¶ÔÏó£¬È»ºóÔÚµØÖ·ÖĞ´æ·ÅÒ»Ğ©¼òµ¥£¬ÕâÖÖ·½·¨Ö»Ö§³ÖgetÇØÇï£¬ÇÒÖ»ÄÜµ¥ÏòµØÏò·şÎñÆ÷·¢ËÍÇëÇó£¬ÔÚÍ³¼Æ¹ã¸æÆØ¹â´ÎÊıÖĞ±È½Ï³£¼û¡£ 
+    4¡¢ÕÒ¡±°Ö°Ö¡±£ºÍ¨¹ıĞŞ¸Ädocument.domainÀ´¿ç×ÓÓò
+	   ¶ÔÓÚÒÔÏÂµÄÕâÁ½¸öÓòÃû£¬¿ÉÒÔ¿´µ½ËûÃÇµÄÖ÷ÓòÃû¶¼ÊÇ example.com£¬ÏàÍ¬ÓÚÓĞÒ»¸ö¹²Í¬µÄ°Ö°Ö£¬ÇÒ´Ë·½·¨Ö»ÊÊÓÃÓÚÁ½¸öiframeÖ®¼äµÄ¿çÓò¡£
+    5¡¢¸çÁ©ºÃ£ºÍ¨¹ıwindow.nameÀ´¿çÓò½ÓÊÕÊı¾İ
+	    window¶ÔÏóÖĞÆäÊµ°üº¬ÁËºÚÄ§·¨µÄ£¬window.nameÊôĞÔ¾ÍÊÇÆäÖĞÖ®Ò»£¬²»Í¬ÓòµÄ¿ò¼Ü°ÑÏëÒª¹²ÏíµÄĞÅÏ¢·ÅÔÚwindow.nameÀïÃæ£¬ÇÒ´Ë·½·¨Ö»ÊÊÓÃÓÚÁ½¸öiframeÖ®¼äµÄ¿çÓò¡£
+    6¡¢ĞÂÊ¯Æ÷Ê±´ú£ºÊ¹ÓÃHTML5µÄwindow.postMessage·½·¨¿çÓò
+	    window.postMessage(message,targetOrigin) ·½·¨ÊÇhtml5ĞÂÒı½øµÄÌØĞÔ£¬¿ÉÒÔÊ¹ÓÃËüÀ´ÏòÆäËüµÄwindow¶ÔÏó·¢ËÍÏûÏ¢£¬ÎŞÂÛÕâ¸öwindow¶ÔÏóÊÇÊôÓÚÍ¬Ô´»ò²»Í¬Ô´£¬Ä¿Ç°IE8+¡¢FireFox¡¢Chrome¡¢OperaµÈä¯ÀÀÆ÷¶¼ÒÑ¾­Ö§³Öwindow.postMessage·½·¨¡£ÕâÖÖ·½·¨²»ÄÜºÍ·şÎñ¶Ë½»»»Êı¾İ£¬Ö»ÄÜÔÚÁ½¸ö´°¿Ú£¨iframe£©Ö®¼ä½»»»Êı¾İ 
+  
+
+ 
+
+  *jqÖĞajax,get,postÓÃ·¨
+    $.ajax({name:value, name:value, ... })
+      name°üÀ¨async£¬url£¬type£¬success(result,status,xhr)£¬error(xhr,status,error)£¬data£¬username£¬password£¬
+              timeout£¬beforeSend(xhr)£¬jsonp£¬jsonpCallback£¬xhr......
+    $.get(URL,data,function(data,status,xhr),dataType)
+    $(selector).post(URL,data,function(data,status,xhr),dataType)
+	
+	
+  * ajaxÇëÇóµÄÊ±ºòget ºÍpost·½Ê½µÄÇø±ğ
+     Ò»¸öÔÚurlºóÃæ Ò»¸ö·ÅÔÚĞéÄâÔØÌåÀïÃæ
+     ÓĞ´óĞ¡ÏŞÖÆ
+     °²È«ÎÊÌâ
+     Ó¦ÓÃ²»Í¬ Ò»¸öÊÇÂÛÌ³µÈÖ»ĞèÒªÇëÇóµÄ£¬Ò»¸öÊÇÀàËÆĞŞ¸ÄÃÜÂëµÄ
+
+
+
+  * ajaxÇëÇóÊ±£¬ÈçºÎ½âÊÍjsonÊı¾İ
+    Ê¹ÓÃeval parse ¼øÓÚ°²È«ĞÔ¿¼ÂÇ Ê¹ÓÃparse¸ü¿¿Æ×
+	
+	
+  * ½âÊÍjsonpµÄÔ­Àí£¬ÒÔ¼°ÎªÊ²Ã´²»ÊÇÕæÕıµÄajax,¾ÙÀı£º
+     ¶¯Ì¬´´½¨script±êÇ©£¬»Øµ÷º¯Êı
+     AjaxÊÇÒ³ÃæÎŞË¢ĞÂÇëÇóÊı¾İ²Ù×÷
+	 
+  * Ç°¶ËÒ³ÃæÓĞÄÄÈı²ã¹¹³É£¬·Ö±ğÊÇÊ²Ã´?×÷ÓÃÊÇÊ²Ã´?
+     ½á¹¹²ã Html ±íÊ¾²ã CSS ĞĞÎª²ã js
+  
+  
+  * ÒÆ¶¯¶ËÓëPC¶ËµÄÇø±ğ
+     ·Ö±æÂÊ
+	 webkitÄÚºËµÄä¯ÀÀÆ÷ºÍchrome£¬uc£¬qq£¬Ğ¡Ã×ÊÖ»úä¯ÀÀÆ÷
+	 Êó±ê£¬¼üÅÌµÄ½»»¥±ä³ÉÁË´¥ÃşÒÔ¼°ÊÖÊÆµÄ½»»¥
+	 ÓëNative App»¥¶¯
+	 
+  
+  * ÍøÕ¾SEOÎÊÌâ
+    ÄÚÈİºÃ£¬²»×÷±×£¬¸üĞÂ¼°Ê±£¬Ô­´´¶à£¬ÓÅÖÊÍâÁ´¶à,ÍøÕ¾²¼¾Ö¡¢¼ÓÔØËÙ¶È¡¢ÍøÕ¾½á¹»£¬ÍøÕ¾·şÎñÆ÷ºÍ½âÎöµÈÒ»¶¨ÒªÎÈ¶¨£¬Õ¾³¤Ìá½»
+    1¡¢ÍøÕ¾µÄÎïÀí½á¹¹£¬URL²ã¼¶µÄÓÅ»¯£»
+    2¡¢ÍøÕ¾µÄµ¼º½¾¡Á¿²ÉÓÃÎÄ×Öµ¼º½£¬²»½¨ÒéÊ¹ÓÃÍ¼Æ¬ºÍflashµ¼º½£»
+    3¡¢ÍøÒ³µÄ Title¡¢Description¡¢keywords ½øĞĞ¹Ø¼ü´ÊÓÅ»¯£»
+    4¡¢ÍøÕ¾µÄÍ¼Æ¬Ìí¼Ó£ºALT¡¢Title ±êÇ©£¬²¢½øĞĞÎÄ×ÖÃèÊö£»
+    5¡¢ÍøÒ³µÄ´úÂëÊİÉí£¬¶ÔÓÚ CSS¡¢JS ²ÉÓÃµ÷ÓÃÍâ²¿ÎÄ¼ş£»
+    6¡¢ÍøÒ³¹Ø¼ü´ÊµÄºÏÀí²¼¾Ö£¬ÒÔ¼°¹Ø¼ü´ÊÃÜ¶ÈµÄ¿ØÖÆ£»
+    7¡¢ÍøÕ¾ÄÚ²¿Á´½Ó½¨Éè£¬µ¼³öÁ´½ÓÊıÁ¿²»ÒË¹ı¶à£»
+    8¡¢ÍøÒ³¾¡Á¿ÉèÖÃ³É£ºhtml ¾²Ì¬Ò³Ãæ£»
+    9¡¢ÍøÒ³ÄÚÈİÌá³«Ô­´´£¬ÊÊµ±Î±Ô­´´£»
+    10¡¢ÍøÕ¾µØÍ¼ÉèÖÃ£ºSitemap ;
+    11¡¢ÍøÒ³ÊÇ·ñ·ûºÏW3C±ê×¼¡£
+	
+  * ±¾µØ´æ´¢web storageÓëcookieÇø±ğ
+    localstorage±£´æÊı¾İÉúÃüÖÜÆÚ³¤£¬ÈİÁ¿´ó
+	cookie 4kb
+	cookie »á°üº¬ÔÚÃ¿¸öhttpÇëÇóÖĞÏò·şÎñÆ÷·¢ËÍ£¬ÕâÑùÊÆ±Ø»áµ¼ÖÂ¶à´Î·¢ËÍÖØ¸´Êı¾İ
+	cookie ÍøÂç´«ÊäÊ±²¢Î´¼ÓÃÜ
+  
+
+
+  *  ÇëÖ¸³ödocument loadºÍdocument readyµÄÇø±ğ£¿
+     ¹²Í¬µã£ºÕâÁ½ÖÖÊÂ¼ş¶¼´ú±íµÄÊÇÒ³ÃæÎÄµµ¼ÓÔØÊ±´¥·¢¡£
+     ÒìÍ¬µã£º
+         ready ÊÂ¼şµÄ´¥·¢£¬±íÊ¾ÎÄµµ½á¹¹ÒÑ¾­¼ÓÔØÍê³É£¨²»°üº¬Í¼Æ¬µÈ·ÇÎÄ×ÖÃ½ÌåÎÄ¼ş£©¡£
+         onload ÊÂ¼şµÄ´¥·¢£¬±íÊ¾Ò³Ãæ°üº¬Í¼Æ¬µÈÎÄ¼şÔÚÄÚµÄËùÓĞÔªËØ¶¼¼ÓÔØÍê³É¡£
+
+  * Äã×öµÄÒ³ÃæÔÚÄÄĞ©Á÷ÀÀÆ÷²âÊÔ¹ı?ÕâĞ©ä¯ÀÀÆ÷µÄÄÚºË·Ö±ğÊÇÊ²Ã´?
+     Ie(IeÄÚºË) »ğºü£¨Gecko£© ¹È¸è£¨webkit,Blink£© opera(Presto),Safari(wbkit)
+
+  * ²»Í¬ä¯ÀÀÆ÷¼æÈİÎÊÌâ
+    ¼òµ¥´Ö±©·¨
+    *{ margin: 0; padding: 0; }
+	ä¯ÀÀÆ÷ CSS ¼æÈİÇ°×º
+     transform:rotate(7deg); // Í³Ò»±êÊ¶Óï¾ä
+     -o-transform:rotate(7deg); // Opera
+     -ms-transform:rotate(7deg); // IE
+     -moz-transform:rotate(7deg); // Firefox
+     -webkit-transform:rotate(7deg); // Chrome
+
+html5shiv.js
+½â¾ö ie9 ÒÔÏÂä¯ÀÀÆ÷¶Ô html5 ĞÂÔö±êÇ©²»Ê¶±ğµÄÎÊÌâ¡£
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<![endif]-->
+
+respond.js
+½â¾ö ie9 ÒÔÏÂä¯ÀÀÆ÷²»Ö§³Ö CSS3 Media Query µÄÎÊÌâ¡£
+<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+picturefill.js
+½â¾ö IE 9 10 11 µÈä¯ÀÀÆ÷²»Ö§³Ö <picture> ±êÇ©µÄÎÊÌâ
+<script src="https://cdn.bootcss.com/picturefill/3.0.3/picturefill.min.js"></script>
+
+
+  * <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+     X-UA-CompatibleÊÇ×Ô´ÓIE8ĞÂ¼ÓµÄÒ»¸öÉèÖÃ£¬¶ÔÓÚIE8ÒÔÏÂµÄä¯ÀÀÆ÷ÊÇ²»Ê¶±ğµÄ¡£ Í¨¹ıÔÚmetaÖĞÉèÖÃX-UA-CompatibleµÄÖµ£¬¿ÉÒÔÖ¸¶¨ÍøÒ³µÄ¼æÈİĞÔÄ£Ê½ÉèÖÃ¡£ 
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+   #ÒÔÉÏ´úÂëIE=edge¸æËßIEÊ¹ÓÃ×îĞÂµÄÒıÇæäÖÈ¾ÍøÒ³£¬chrome=1Ôò¿ÉÒÔ¼¤»îChrome Frame.
+
+ * callºÍapplyµÄÇø±ğ
+    BObject.call(thisAObj,arg1,arg2,arg3)
+    BObject.apply(thisAObj,argArray)
+    apply£ºµ÷ÓÃÒ»¸ö¶ÔÏóµÄÒ»¸ö·½·¨£¬ÓÃÁíÒ»¸ö¶ÔÏóÌæ»»µ±Ç°¶ÔÏó¡£ÀıÈç£ºB.apply(A, arguments);¼´A¶ÔÏóÓ¦ÓÃB¶ÔÏóµÄ·½·¨¡£
+    call£ºµ÷ÓÃÒ»¸ö¶ÔÏóµÄÒ»¸ö·½·¨£¬ÓÃÁíÒ»¸ö¶ÔÏóÌæ»»µ±Ç°¶ÔÏó¡£ÀıÈç£ºB.call(A, args1,args2);¼´A¶ÔÏóµ÷ÓÃB¶ÔÏóµÄ·½·¨
+    ´Ó¶¨ÒåÖĞ¿ÉÒÔ¿´³ö£¬callºÍapply¶¼ÊÇµ÷ÓÃÒ»¸ö¶ÔÏóµÄÒ»¸ö·½·¨£¬ÓÃÁíÒ»¸ö¶ÔÏóÌæ»»µ±Ç°¶ÔÏó¡£¶ø²»Í¬Ö®´¦ÔÚÓÚ´«µİµÄ²ÎÊı£¬apply×î¶àÖ»ÄÜÓĞÁ½¸ö²ÎÊı¡ª¡ªĞÂthis¶ÔÏóºÍÒ»¸öÊı×éargArray£¬Èç¹ûarg²»ÊÇÊı×éÔò»á±¨´íTypeError£»
+callÔò¿ÉÒÔ´«µİ¶à¸ö²ÎÊı£¬µÚÒ»¸ö²ÎÊıºÍapplyÒ»Ñù£¬ÊÇÓÃÀ´Ìæ»»µÄ¶ÔÏó£¬ºó±ßÊÇ²ÎÊıÁĞ±í¡£
+
+
+*http³£¼û´íÎóÂë
+200 OKÇëÇó³É¹¦¡£Ò»°ãÓÃÓÚGETÓëPOSTÇëÇó
+400 Bad Request¿Í»§¶ËÇëÇóµÄÓï·¨´íÎó£¬·şÎñÆ÷ÎŞ·¨Àí½â
+404 Not Found·şÎñÆ÷ÎŞ·¨¸ù¾İ¿Í»§¶ËµÄÇëÇóÕÒµ½×ÊÔ´(ÍøÒ³)¡£Í¨¹ı´Ë´úÂë£¬ÍøÕ¾Éè¼ÆÈËÔ±¿ÉÉèÖÃ¡±ÄúËùÇëÇóµÄ×ÊÔ´ÎŞ·¨ÕÒµ½¡±µÄ¸öĞÔÒ³Ãæ
+405 Method Not Allowed¿Í»§¶ËÇëÇóÖĞµÄ·½·¨±»½ûÖ¹
+500 Internal Server Error·şÎñÆ÷ÄÚ²¿´íÎó£¬ÎŞ·¨Íê³ÉÇëÇó
+501 Not Implemented·şÎñÆ÷²»Ö§³ÖÇëÇóµÄ¹¦ÄÜ£¬ÎŞ·¨Íê³ÉÇëÇó
+502 Bad Gateway³äµ±Íø¹Ø»ò´úÀíµÄ·şÎñÆ÷£¬´ÓÔ¶¶Ë·şÎñÆ÷½ÓÊÕµ½ÁËÒ»¸öÎŞĞ§µÄÇëÇó
+504 Gateway Time-out³äµ±Íø¹Ø»ò´úÀíµÄ·şÎñÆ÷£¬Î´¼°Ê±´ÓÔ¶¶Ë·şÎñÆ÷»ñÈ¡ÇëÇó
+
+
+
+*angular¡¢vue¡¢react¹¤×÷Ô­Àí¼°Çø±ğ
+angular MVC ÒÀÀµ×¢Èë£¬Ë«Ïò°ó¶¨
+vue  ÇáÁ¿¼¶¿ò¼Ü£¬Ë«Ïò°ó¶¨
+react µ¥ÏîÊı¾İÁ÷
+
+angular¿ò¼Ü
+ÓÅµã£º
+¡¤Ä£°å¹¦ÄÜÇ¿´ó·á¸»£¬²¢ÇÒÊÇÉùÃ÷Ê½µÄ£¬×Ô´øÁË·á¸»µÄAngularÖ¸Áî£»
+¡¤ÊÇÒ»¸ö±È½ÏÍêÉÆµÄÇ°¶Ë¿ò¼Ü£¬°üº¬·şÎñ£¬Ä£°å£¬Êı¾İË«Ïò°ó¶¨£¬Ä£¿é»¯£¬Â·ÓÉ£¬¹ıÂËÆ÷£¬ÒÀÀµ×¢ÈëµÈËùÓĞ¹¦ÄÜ£»
+¡¤×Ô¶¨ÒåÖ¸Áî£¬×Ô¶¨ÒåÖ¸Áîºó¿ÉÒÔÔÚÏîÄ¿ÖĞ¶à´ÎÊ¹ÓÃ¡£
+¡¤ngÄ£¿é»¯±È½Ï´óµ¨µÄÒıÈëÁËJavaµÄÒ»Ğ©¶«Î÷£¨ÒÀÀµ×¢Èë£©
+¡¤Ë«Ïò°ó¶¨£¨Ôà¼ì²é»úÖÆ£©
+È±µã£º
+¡¤ÑéÖ¤¹¦ÄÜ´íÎóĞÅÏ¢ÏÔÊ¾±È½Ï±¡Èõ£¬ĞèÒªĞ´ºÜ¶àÄ£°å±êÇ©
+¡¤ngÌá³«ÔÚ¿ØÖÆÆ÷ÀïÃæ²»ÒªÓĞ²Ù×÷DOMµÄ´úÂë£¬¶ÔÓÚÒ»Ğ©jQuery ²å¼şµÄÊ¹ÓÃ£¬Èç¹ûÏë²»ÆÆ»µ´úÂëµÄÕû½àĞÔ£¬ĞèÒªĞ´Ò»Ğ©directiveÈ¥·â×°²å¼ş
+¡¤´Ó1.0.XÉı¼¶µ½1.2.X£¬Ã²ËÆÓĞ±È½Ï´óµÄµ÷Õû£¬Ã»ÓĞÍêÃÀ¼æÈİµÍ°æ±¾£¬Éı¼¶Ö®ºó¿ÉÄÜ»áµ¼ÖÂÒ»¸ö¼æÈİĞÔµÄBUG
+¡¤AngularJS Ì«±¿ÖØÁË£¬Ã»ÓĞÈÃÓÃ»§Ñ¡ÔñÒ»¸öÇáÁ¿¼¶µÄ°æ±¾£¬µ±È»1.2.Xºó£¬AngularÒ²ÔÚ×öÒ»Ğ©¸ü¸Ä£¬±ÈÈç°Ñroute£¬animateµÈÄ£¿é¶ÀÁ¢³öÈ¥£¬ÈÃÓÃ»§×Ô¼ºÈ¥Ñ¡Ôñ¡£
+Ó¦ÓÃ³¡¾°£ºÔÚ´óĞÍ³¬´óĞÍwebÓ¦ÓÃ¿ª·¢ÉÏ¡£
+
+vue¿ò¼Ü£¨MVVM£©
+ÓÅµã£º
+¡¤ÇáÁ¿¼¶¿ò¼Ü£¬Óï·¨¼òµ¥£¬Ñ§Ï°³É±¾µÍ
+¡¤Ë«ÏòÊı¾İ°ó¶¨
+¡¤×é¼ş»¯¿ª·¢
+¡¤Êı¾İºÍ½á¹¹µÄ·ÖÀë
+¡¤ĞéÄâDOM
+¡¤ÔËĞĞËÙ¶È¿ì
+¡¤Áé»î½¥½øÊ½¿ò¼Ü
+È±µã£º
+¡¤²»Ö§³ÖIE8
+¡¤ÉúÌ¬»·¾³²î£¬²»ÈçangularºÍreact
+¡¤²»ÊÊºÏÆ«´óĞÍµÄÏîÄ¿
+Ó¦ÓÃ³¡¾°£ºĞ¡ĞÍÓ¦ÓÃ
+
+react¿ò¼Ü£¨MVC£©
+ÓÅµã£º
+¡¤jsxÓï·¨´´½¨ĞéÄâDOM£¬¼«ËÙµÄäÖÈ¾ĞÔÄÜ
+¡¤×é¼ş»¯¿ª·¢£¬×é¼ş¶ÀÁ¢£¬·½±ãÖØ¸´Ê¹ÓÃ
+¡¤µ¥ÏòÊı¾İÁ÷
+¡¤×é¼şÉúÃüÖÜÆÚ
+¡¤¿çä¯ÀÀÆ÷¼æÈİĞÔºÃ
+È±µã£º
+¡¤²»ÊÊºÏµ¥¶À×öÒ»¸öÍêÕûµÄ¿ò¼Ü
+Ó¦ÓÃ³¡¾°£º¸öĞÔ»¯ĞèÇó¡¢ÖĞĞÍÓ¦ÓÃ
+
+
+* VUEÉúÃüÖÜÆÚ
+     VueÊµÀıÓĞÒ»¸öÍêÕûµÄÉúÃüÖÜÆÚ£¬Ò²¾ÍÊÇ´Ó¿ªÊ¼´´½¨¡¢³õÊ¼»¯Êı¾İ¡¢±àÒëÄ£°å¡¢¹ÒÔØDom¡¢äÖÈ¾¡ú¸üĞÂ¡úäÖÈ¾¡¢Ïú»ÙµÈÒ»ÏµÁĞ¹ı³Ì£¬ÎÒÃÇ³ÆÕâÊÇVueµÄÉúÃüÖÜÆÚ¡£Í¨Ë×Ëµ¾ÍÊÇVueÊµÀı´Ó´´½¨µ½Ïú»ÙµÄ¹ı³Ì£¬¾ÍÊÇÉúÃüÖÜÆÚ¡£
+beforeCreate£»created£»beforeMount£»mounted£»beforeUpdate£»updated£»beforeDestroy£»destroyed
+Ã¿Ò»¸ö×é¼ş»òÕßÊµÀı¶¼»á¾­ÀúÒ»¸öÍêÕûµÄÉúÃüÖÜÆÚ£¬×Ü¹²·ÖÎªÈı¸ö½×¶Î£º³õÊ¼»¯¡¢ÔËĞĞÖĞ¡¢Ïú»Ù¡£
+
+
+* VUEÖ÷¼ü¼ä´«Öµ
+Ò»¡¢¸¸×é¼şÏò×Ó×é¼ş´«µİÊı¾İ:props
+    ×Ó×é¼ş²¿·Ö:header.vue <template><div id="logo">{{logo}}</div></template><script>export default{props:['logo']}</script>
+    ¸¸×é¼ş²¿·Ö£ºapp.vue <template><div id="app"><HeaderDiv :logo="logoMsg"></HeaderDiv></div></template>
+	<script>
+	 import HeaderDiv from './hearder'
+	 export default{
+	   name:'app',
+	   data(){return{logoMsg:'hahaha'}},
+	   components:{HeaderDiv}
+	 }
+	</script>
+¶ş¡¢×Ó×é¼şÏò¸¸×é¼ş´«µİÊı¾İ
+   Ê¹ÓÃÁË $emit À´´« ÊÂ¼ş
+Èı¡¢×Ó×é¼şÏò×Ó×é¼ş´«µİÊı¾İ
+ÎªÁË±ãÓÚ¿ª·¢£¬Vue ÍÆ³öÁËÒ»¸ö×´Ì¬¹ÜÀí¹¤¾ß Vuex£¬¿ÉÒÔºÜ·½±ãÊµÏÖ×é¼şÖ®¼äµÄ²ÎÊı´«µİ
+
+ËÄ¡¢×Ó×é¼şÏò×Ó×é¼ş´«µİÊı¾İ£¨ĞÖµÜ×é¼ş´«Öµ£©
+bus·½Ê½µÄ×é¼ş¼ä´«ÖµÆäÊµ¾ÍÊÇ½¨Á¢Ò»¸ö¹«¹²µÄjsÎÄ¼ş£¬×¨ÃÅÓÃÀ´´«µİÏûÏ¢
+ 
+
+
+* Ç°¶ËrouterÊµÏÖĞÎÊ½
+1¡¢location.hash+hashchangeÊÂ¼ş
+2¡¢history.pushState()+popStateÊÂ¼ş
+
+
+* H5Ò³ÃæÔÚÎ¢ĞÅ¡¢webview³£³öÏÖµÄbug
+Ò³Ãæ¿Õ°×;×ÖÌå±äĞÎ;ÈÕÆÚ±äNAN;¼üÅÌ²»»ØÂä;¼üÅÌ»ØÂäÒ³Ãæ¿Õ°×...
+
+
+* commonJS£¬amd, cmdÊÇ
+CommonJS×éÖ¯´´ÔìÁËÒ»Ì×jsÄ£¿éÏµÍ³µÄ¹æ·¶¡£ÎÒÃÇÏÖÔÚËùËµµÄCommonJSÖ¸µÄ¾ÍÊÇÕâ¸ö¹æ·¶¡£node.jsµÄÄ£¿éÏµÍ³£¬¾ÍÊÇ²ÎÕÕCommonJS¹æ·¶ÊµÏÖµÄ¡£
+ÔÚ¼æÈİCommonJSµÄÏµÍ³ÖĞ£¬Äã¿ÉÒÔÊ¹ÓÃJavaScript¿ª·¢ÒÔÏÂ³ÌĞò£º
+(1)¡¢·şÎñÆ÷¶ËJavaScriptÓ¦ÓÃ³ÌĞò
+(2)¡¢ÃüÁîĞĞ¹¤¾ß
+(3)¡¢Í¼ĞÎ½çÃæÓ¦ÓÃ³ÌĞò
+(4)¡¢»ìºÏÓ¦ÓÃ³ÌĞò£¨Èç£¬Titanium»òAdobe AIR£©
+CommonJS¶¨ÒåµÄÄ£¿é·ÖÎª£º{Ä£¿éÒıÓÃ(require)} {Ä£¿é¶¨Òå(exports)} {Ä£¿é±êÊ¶(module)}
+require()ÓÃÀ´ÒıÈëÍâ²¿Ä£¿é£»exports¶ÔÏóÓÃÓÚµ¼³öµ±Ç°Ä£¿éµÄ·½·¨»ò±äÁ¿£¬Î¨Ò»µÄµ¼³ö¿Ú£»module¶ÔÏó¾Í´ú±íÄ£¿é±¾Éí¡£
+
+amd: ?
+cmd£ºÃüÁîÌáÊ¾·û
+
+
+
+*Ç°ºó¶Ë·ÖÀë¼°Ç°ºó¶ËºÏ²¢·½°¸
+£¨×Ô¼º³¶°É£¬ĞÎÊ½ÄÇÃ´¶àÖÖ¶àÑù°´ĞèÑ¡Ôñ£©
+
+* js¿ª·¢Ä£Ê½£¬ÈçºÎ¶©ÔÄ·¢²¼Ä£Ê½
+£¨²»Ì«ÁË½âÕâÒª´ğµÄÊÇÊ²Ã´£¬¾Í²»³¶ÁË£©
