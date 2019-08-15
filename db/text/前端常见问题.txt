@@ -196,6 +196,7 @@
     6、新石器时代：使用HTML5的window.postMessage方法跨域
 	    window.postMessage(message,targetOrigin) 方法是html5新引进的特性，可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源，目前IE8+、FireFox、Chrome、Opera等浏览器都已经支持window.postMessage方法。这种方法不能和服务端交换数据，只能在两个窗口（iframe）之间交换数据 
   
+    7、VUE里axios/resource插件里，可对dev对象里的proxyTable修改配置代理，使用axios发送请求
 
  
 
@@ -394,6 +395,9 @@ bus方式的组件间传值其实就是建立一个公共的js文件，专门用来传递消息
 1、location.hash+hashchange事件
 2、history.pushState()+popState事件
 
+hash： 浏览器url址栏 中的 # 符号（如这个 URL：http://www.abc.com/#/hello，hash 的值为“ #/hello”），hash 不被包括在 HTTP 请求中（对后端完全没有影响），因此改变 hash 不会重新加载页面
+history：利用了 HTML5 History Interface 中新增的 pushState( ) 和 replaceState( ) 方法（需要特定浏览器支持）。单页客户端应用，history mode 需要后台配置支持（详细参见：https://router.vuejs.org/zh/guide/essentials/history-mode.html）
+
 
 * H5页面在微信、webview常出现的bug
 页面空白;字体变形;日期变NAN;键盘不回落;键盘回落页面空白...
@@ -409,14 +413,32 @@ CommonJS组织创造了一套js模块系统的规范。我们现在所说的CommonJS指的就是这个规范。
 CommonJS定义的模块分为：{模块引用(require)} {模块定义(exports)} {模块标识(module)}
 require()用来引入外部模块；exports对象用于导出当前模块的方法或变量，唯一的导出口；module对象就代表模块本身。
 
-amd: ?
-cmd：命令提示符
+amd: 如果是在服务器端的话，require的加载速度取决于硬盘的读取速度，硬盘的读取速度肯定很快，但是浏览器端的加载速度取决于网速的快慢，所以在加载moduleB的时候，浏览器端肯定会有很大的延迟，可能造成服务器假死的状态。所以适用于浏览器端的AMD规范出来了，AMD规范中的加载是异步的，即加载模块的时候可以同时执行后面的代码，AMD规范代表的是requireJS。
+cmd：commonJs规范(CMD)，但是由于CMD规范中的模块加载方式是同步的，所以CMD规范只适用于服务器端，不适用于浏览器端
 
 
 *前后端分离及前后端合并方案
 （自己扯吧，形式那么多种多样按需选择）
 
-* js开发模式，如何订阅发布模式
-（不太了解这要答的是什么，就不扯了）
+* js设计模式，订阅/发布模式
+   发布订阅模式，基于一个主题/事件通道，希望接收通知的对象（称为subscriber）通过自定义事件订阅主题，被激活事件的对象（称为publisher）通过发布主题事件的方式被通知。
+就和用户订阅微信公众号道理一样，一个公众号可以被多个用户同时订阅，当公众号有新增内容时候，只要发布就好了，用户就能接收到最新的内容。
 
+js中的事件监听机制就是一种观察者模式。
+
+二、和观察者模式的区别
+观察者模式：一个对象（称为subject）维持一系列依赖于它的对象（称为observer），将有关状态的任何变更自动通知给它们（观察者）。
+
+　　1、Observer模式要求观察者必须订阅内容改变的事件，定义了一个一对多的依赖关系；
+       2、Publish/Subscribe模式使用了一个主题/事件通道，这个通道介于订阅着与发布者之间；
+       3、观察者模式里面观察者「被迫」执行内容改变事件（subject内容事件）；发布/订阅模式中，订阅着可以自定义事件处理程序；
+       4、观察者模式两个对象之间有很强的依赖关系；发布/订阅模式两个对象之间的耦合读底
+
+三、　Vue会遍历实例的data属性，把每一个data都设置为访问器，然后在该属性的getter函数中将其设为watcher，在setter中向其他watcher发布改变的消息。
+　　这样，配合发布/订阅模式，改变其中的一个值，会发布消息，所有的watcher会更新自己，这些watcher也就是绑定在dom中的显示信息。
+
+https://www.cnblogs.com/leaf930814/p/9014200.html
+
+使用场景：
+首先，如果一个数据或者事件的变化会对许多事件产生影响。例如：我们通过websocket从后台实时获取数据，当返回的数据为 @end 时，需要执行关闭数据流，更改数据显示，更新设备状态等等，在不使用订阅开发者模式时，当接收到 @end 后，我们注册一个函数，需要在该函数中写n个函数的执行，但是使用设计者模式，只需要注册一个 @end 的发布函数，其他函数订阅该函数，当发布函数执行后会发布信息，其订阅者会自动更新状态。
 
